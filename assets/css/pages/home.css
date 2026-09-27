@@ -1,0 +1,135 @@
+/* ========================================
+   NIENKE — FRONT PAGE
+   ======================================== */
+
+.nienke-home {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    background: #f4f0e7;
+}
+
+
+/* CONTROLLED CHAOS CANVAS */
+
+.nienke-mosaic {
+    position: relative;
+    width: 100%;
+    min-height: calc(100vh - 54px);
+    overflow: hidden;
+    box-sizing: border-box;
+    background: #f4f0e7;
+}
+
+
+/* MAIN NAME */
+
+.mosaic-name {
+    position: absolute;
+    left: 50%;
+    top: 48%;
+    transform: translate(-50%, -50%);
+
+    display: flex;
+    flex-direction: column;
+
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(72px, 10vw, 170px);
+    font-weight: 400;
+    line-height: 0.78;
+    letter-spacing: -0.06em;
+
+    white-space: nowrap;
+    z-index: 2;
+}
+
+.mosaic-name span:last-child {
+    margin-left: 0.7em;
+}
+
+
+/* FLOATING EDITORIAL WORDS */
+
+.mosaic-word {
+    position: absolute;
+    font-size: 12px;
+    letter-spacing: 0.18em;
+    font-weight: 400;
+}
+
+.mosaic-cuisine {
+    left: 8%;
+    top: 19%;
+    transform: rotate(-8deg);
+}
+
+.mosaic-notes {
+    right: 12%;
+    top: 27%;
+    transform: rotate(6deg);
+}
+
+.mosaic-obsessions {
+    left: 16%;
+    bottom: 18%;
+    transform: rotate(4deg);
+}
+
+
+/* ENTER THE KITCHEN */
+
+.mosaic-enter {
+    position: absolute;
+    right: 9%;
+    bottom: 10%;
+
+    color: #000;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 18px;
+    font-style: italic;
+
+    text-decoration: none;
+}
+
+.mosaic-enter:hover {
+    text-decoration: underline;
+}
+
+
+/* MOBILE — temporary foundation */
+
+@media (max-width: 700px) {
+
+    .nienke-mosaic {
+        min-height: 850px;
+    }
+
+    .mosaic-name {
+        top: 43%;
+        font-size: clamp(52px, 17vw, 88px);
+    }
+
+    .mosaic-name span:last-child {
+        margin-left: 0.25em;
+    }
+
+    .mosaic-cuisine {
+        left: 8%;
+        top: 14%;
+    }
+
+    .mosaic-notes {
+        right: 8%;
+        top: 24%;
+    }
+
+    .mosaic-obsessions {
+        left: 9%;
+        bottom: 21%;
+    }
+
+    .mosaic-enter {
+        right: 8%;
+        bottom: 9%;
+    }
+}
