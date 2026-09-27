@@ -1,135 +1,439 @@
-/* ========================================
-   NIENKE — FRONT PAGE
-   ======================================== */
+/* ==========================================================
+   NIENKE VAN ZATRATE — HOME
+   CONTROLLED CHAOS COLLAGE
+   ==========================================================
+
+   QUICK CONTROLS
+
+   width      = size
+   left/right = move horizontally
+   top/bottom = move vertically
+   z-index    = layers
+
+   Higher z-index = closer to the front.
+   Lower z-index  = farther in the background.
+   ========================================================== */
+
+
+/* ==========================================================
+   01. PAGE + COLLAGE CANVAS
+   ========================================================== */
 
 .nienke-home {
-    width: 100%;
-    margin: 0;
-    padding: 0;
-    background: #f4f0e7;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  background: #f4f0e7;
 }
-
-
-/* CONTROLLED CHAOS CANVAS */
 
 .nienke-mosaic {
-    position: relative;
-    width: 100%;
-    min-height: calc(100vh - 54px);
-    overflow: hidden;
-    box-sizing: border-box;
-    background: #f4f0e7;
+  position: relative;
+  width: 100%;
+  height: 780px;
+  min-height: 780px;
+  overflow: hidden;
 }
 
 
-/* MAIN NAME */
+/* ==========================================================
+   02. SHARED IMAGE SETTINGS
+   Do not normally edit this section.
+   ========================================================== */
+
+.mosaic-image {
+  position: absolute;
+  margin: 0;
+}
+
+.mosaic-image img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+
+/* ==========================================================
+   🐈 CAT
+   ========================================================== */
+
+.mosaic-image-01 {
+  position: absolute;
+
+  width: 27%;       /* SIZE */
+  right: -2%;        /* LEFT ↔ RIGHT */
+  top: 55%;          /* UP ↕ DOWN */
+
+  z-index: 1;       /* LAYER */
+}
+
+
+/* ==========================================================
+   🍪 RASPBERRY COOKIE — ENTER THE KITCHEN
+   ========================================================== */
+
+.mosaic-image-02 {
+  position: absolute;
+
+  width: 25%;       /* SIZE */
+  right: 30%;        /* LEFT ↔ RIGHT */
+  bottom: -20%;       /* UP ↕ DOWN */
+
+  z-index: 3;       /* LAYER */
+
+  display: block;
+  color: #000;
+  text-decoration: none;
+}
+
+.mosaic-image-02 img {
+  display: block;
+  width: 100%;
+  height: auto;
+
+  transition: transform 0.35s ease;
+}
+
+
+/* ==========================================================
+   ENTER THE KITCHEN TEXT
+   ========================================================== */
+
+.mosaic-image-02 .mosaic-enter {
+  position: absolute;
+
+  right: 80%;       /* LEFT ↔ RIGHT */
+  bottom: 20%;      /* UP ↕ DOWN */
+
+  width: max-content;
+
+  color: #000;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 48px;
+  font-style: italic;
+  text-decoration: none;
+
+  z-index: 10;      /* LAYER */
+}
+
+@media (hover: hover) {
+
+  .mosaic-image-02:hover img {
+    transform: scale(1.035) rotate(1deg);
+  }
+
+  .mosaic-image-02:hover .mosaic-enter {
+    text-decoration: underline;
+  }
+}
+
+
+/* ==========================================================
+   🎬 SECOND LIFE — PASSIONS
+   ========================================================== */
+
+.mosaic-image-03 {
+  position: absolute;
+
+  width: 47%;       /* SIZE */
+  left: -14%;       /* LEFT ↔ RIGHT */
+  bottom: 4.8%;         /* UP ↕ DOWN */
+
+  z-index: 1;       /* LAYER */
+}
+
+
+/* ==========================================================
+   🍽️ FRITTATA SLICE — CUISINE
+   ========================================================== */
+
+.mosaic-image-04 {
+  position: absolute;
+
+  width: 25%;       /* SIZE */
+  left: 25%;        /* LEFT ↔ RIGHT */
+  top: 3%;         /* UP ↕ DOWN */
+
+  z-index: 1;       /* LAYER */
+}
+
+
+/* ==========================================================
+   👒 QUIET — NOTES
+   ========================================================== */
+
+.mosaic-image-05 {
+  position: absolute;
+
+  width: 58%;       /* SIZE */
+  right: -20%;      /* LEFT ↔ RIGHT */
+  top: 0%;         /* UP ↕ DOWN */
+
+  z-index: 1;       /* LAYER */
+}
+
+
+/* ==========================================================
+   ✦ NIENKE VAN ZATRATE
+   ========================================================== */
 
 .mosaic-name {
-    position: absolute;
-    left: 50%;
-    top: 48%;
-    transform: translate(-50%, -50%);
+  position: absolute;
 
-    display: flex;
-    flex-direction: column;
+  left: 50%;        /* LEFT ↔ RIGHT */
+  top: 48%;         /* UP ↕ DOWN */
 
-    font-family: Georgia, "Times New Roman", serif;
-    font-size: clamp(72px, 10vw, 170px);
-    font-weight: 400;
-    line-height: 0.78;
-    letter-spacing: -0.06em;
+  transform: translate(-50%, -50%);
 
-    white-space: nowrap;
-    z-index: 2;
+  display: flex;
+  flex-direction: column;
+
+  font-family: Georgia, "Times New Roman", serif;
+
+  /* SIZE */
+  font-size: clamp(72px, 10vw, 170px);
+
+  font-weight: 400;
+  line-height: 0.78;
+  letter-spacing: -0.06em;
+  white-space: nowrap;
+
+  z-index: 10;      /* LAYER */
 }
+
+/* Position of VAN ZATRATE relative to NIENKE */
 
 .mosaic-name span:last-child {
-    margin-left: 0.7em;
+  margin-left: 0.7em;
 }
 
 
-/* FLOATING EDITORIAL WORDS */
+/* ==========================================================
+   SHARED SETTINGS — CUISINE / NOTES / PASSIONS
+   ========================================================== */
 
 .mosaic-word {
-    position: absolute;
-    font-size: 12px;
-    letter-spacing: 0.18em;
-    font-weight: 400;
+  position: absolute;
+
+  color: inherit;
+  text-decoration: none;
+
+  font-size: 52px;
+  letter-spacing: 0.18em;
+  font-weight: 400;
+
+  z-index: 10;
 }
+
+.mosaic-word:visited,
+.mosaic-word:hover,
+.mosaic-word:active {
+  color: inherit;
+  text-decoration: none;
+}
+
+
+/* ==========================================================
+   CUISINE
+   ========================================================== */
 
 .mosaic-cuisine {
-    left: 8%;
-    top: 19%;
-    transform: rotate(-8deg);
+  left: 8%;         /* LEFT ↔ RIGHT */
+  top: 19%;         /* UP ↕ DOWN */
+
+  transform: rotate(-8deg);
+
+  z-index: 10;      /* LAYER */
 }
+
+
+/* ==========================================================
+   NOTES
+   ========================================================== */
 
 .mosaic-notes {
-    right: 12%;
-    top: 27%;
-    transform: rotate(6deg);
+  right: 28%;       /* LEFT ↔ RIGHT */
+  top: 10%;         /* UP ↕ DOWN */
+
+  transform: rotate(6deg);
+
+  z-index: 10;      /* LAYER */
 }
+
+
+/* ==========================================================
+   PASSIONS
+   ========================================================== */
 
 .mosaic-obsessions {
-    left: 16%;
-    bottom: 18%;
-    transform: rotate(4deg);
+  left: 25%;        /* LEFT ↔ RIGHT */
+  bottom: 13%;      /* UP ↕ DOWN */
+
+  transform: rotate(4deg);
+
+  z-index: 10;      /* LAYER */
+}
+
+/* ==========================================================
+   INTERACTIVE EDITORIAL WORDS — DESKTOP
+   ========================================================== */
+
+.mosaic-word {
+  cursor: pointer;
+
+  transition:
+    transform 0.45s cubic-bezier(.2,.8,.2,1),
+    letter-spacing 0.45s ease,
+    opacity 0.3s ease;
 }
 
 
-/* ENTER THE KITCHEN */
+/* CUISINE */
 
-.mosaic-enter {
-    position: absolute;
-    right: 9%;
-    bottom: 10%;
-
-    color: #000;
-    font-family: Georgia, "Times New Roman", serif;
-    font-size: 18px;
-    font-style: italic;
-
-    text-decoration: none;
-}
-
-.mosaic-enter:hover {
-    text-decoration: underline;
+.mosaic-cuisine:hover {
+  transform: rotate(-3deg) scale(1.08);
+  letter-spacing: 0.28em;
 }
 
 
-/* MOBILE — temporary foundation */
+/* NOTES */
+
+.mosaic-notes:hover {
+  transform: rotate(-2deg) scale(1.08);
+  letter-spacing: 0.30em;
+}
+
+
+/* PASSIONS */
+
+.mosaic-obsessions:hover {
+  transform: rotate(-2deg) scale(1.08);
+  letter-spacing: 0.30em;
+}
+
+/* ==========================================================
+   📱 MOBILE COLLAGE
+   Everything below here affects ONLY screens ≤ 700px.
+   Desktop stays untouched.
+   ========================================================== */
+
+
+/* ==========================================================
+   MOBILE — CONTROLLED CHAOS
+   Independent from desktop
+   ========================================================== */
 
 @media (max-width: 700px) {
 
-    .nienke-mosaic {
-        min-height: 850px;
-    }
+  /* MOBILE CANVAS */
 
-    .mosaic-name {
-        top: 43%;
-        font-size: clamp(52px, 17vw, 88px);
-    }
+  .nienke-mosaic {
+    height: 780px;
+    min-height: 780px;
+    overflow: hidden;
+  }
 
-    .mosaic-name span:last-child {
-        margin-left: 0.25em;
-    }
+  /* CAT */
 
-    .mosaic-cuisine {
-        left: 8%;
-        top: 14%;
-    }
+  .mosaic-image-01 {
+    width: 48%;
+    left: 47%;
+    top: 12%;
+    z-index: 1;
+  }
 
-    .mosaic-notes {
-        right: 8%;
-        top: 24%;
-    }
+/* RASPBERRY COOKIE */
 
-    .mosaic-obsessions {
-        left: 9%;
-        bottom: 21%;
-    }
+.mosaic-image-02 {
+  width: 51%;
+  right: 3%;
+  bottom: 5%;
+  z-index: 3;
+}
 
-    .mosaic-enter {
-        right: 8%;
-        bottom: 9%;
-    }
+/* ENTER THE KITCHEN */
+
+.mosaic-image-02 .mosaic-word {
+  right: 0;
+  bottom: 80%;
+
+  font-size: 18px;
+  white-space: nowrap;
+  z-index: 10;
+}
+
+  /* SECOND LIFE */
+
+  .mosaic-image-03 {
+    width: 79%;
+    left: -12%;
+    top: 65%;
+    z-index: 1;
+  }
+
+  /* FRITTATA */
+
+.mosaic-image-04 {
+  width: 52%;
+  left: 0%;
+  top: 4%;
+  z-index: 1;
+}
+  /* QUIET */
+
+  .mosaic-image-05 {
+    width: 75%;
+    right: -22%;
+    top: 47%;
+    z-index: 1;
+  }
+
+  /* NIENKE VAN ZATRATE */
+
+.mosaic-name {
+  left: 50%;
+  top: 43%;
+
+  font-size: clamp(58px, 12vw, 60px);
+  z-index: 10;
+}
+
+  .mosaic-name span:last-child {
+    margin-left: 0.15em;
+  }
+
+  /* CUISINE */
+
+  .mosaic-cuisine {
+    left: 6%;
+    top: 20%;
+
+    font-size: 29px;
+    transform: rotate(-8deg);
+    z-index: 10;
+  }
+
+  /* NOTES */
+
+.mosaic-notes {
+  right: 4%;
+  top: 31%;
+
+  font-size: 28px;
+  transform: rotate(6deg);
+  z-index: 20;
+}
+
+  /* PASSIONS */
+
+  .mosaic-obsessions {
+    left: 8%;
+    top: 60%;
+    bottom: auto;
+
+    font-size: 28px;
+    transform: rotate(4deg);
+    z-index: 10;
+  }
+
 }
