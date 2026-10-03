@@ -146,7 +146,14 @@ add_action('wp_enqueue_scripts', 'nienke_enqueue_assets');
 
 function nienke_favicon() {
 
-    $favicon = get_template_directory_uri() . '/assets/images/favicon.png';
+    $favicon_path = get_theme_file_path('/assets/images/favicon.png');
+    $favicon_url  = get_theme_file_uri('/assets/images/favicon.png');
+
+    $version = file_exists($favicon_path)
+        ? filemtime($favicon_path)
+        : '1.0.0';
+
+    $favicon = $favicon_url . '?v=' . $version;
 
     echo '<link rel="icon" type="image/png" href="' . esc_url($favicon) . '">';
     echo '<link rel="apple-touch-icon" href="' . esc_url($favicon) . '">';
