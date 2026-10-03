@@ -1,0 +1,563 @@
+/* ========================================
+   NIENKE — CUISINE
+   ======================================== */
+
+.nienke-cuisine {
+  width: min(94vw, 1500px);
+
+  margin: 0 auto;
+
+  color: #111;
+}
+
+
+/* ========================================
+   INTRO
+   ======================================== */
+
+.cuisine-intro {
+  position: relative;
+
+  min-height: 72vh;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  box-sizing: border-box;
+
+  padding: 7vh 0 10vh;
+}
+
+
+/* ========================================
+   EYEBROW
+   ======================================== */
+
+.cuisine-eyebrow {
+  margin: 0 0 2rem;
+
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 10px;
+  font-weight: 400;
+
+  line-height: 1;
+
+  letter-spacing: 0.28em;
+
+  text-transform: uppercase;
+}
+
+
+/* ========================================
+   TITLE
+   ======================================== */
+
+.cuisine-title {
+  margin: 0;
+
+  font-family: "Times New Roman", Times, serif;
+
+  font-size: clamp(7rem, 18vw, 18rem);
+  font-weight: 400;
+
+  line-height: 0.72;
+
+  letter-spacing: -0.07em;
+
+  text-transform: uppercase;
+}
+
+
+/* ========================================
+   INTRO TEXT
+   ======================================== */
+
+.cuisine-intro-text {
+  margin: 3rem 0 0 auto;
+
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 10px;
+
+  line-height: 1.6;
+
+  letter-spacing: 0.32em;
+
+  text-transform: uppercase;
+}
+
+
+/* ========================================
+   RECIPE ARCHIVE
+   ======================================== */
+
+.cuisine-recipes {
+  width: 100%;
+
+  padding: 4vh 0 18vh;
+}
+
+
+/* WordPress post-template reset */
+
+.cuisine-recipes .wp-block-post-template {
+  margin: 0;
+  padding: 0;
+
+  list-style: none;
+}
+
+
+/* ========================================
+   RECIPE
+   ======================================== */
+
+.cuisine-recipe {
+  position: relative;
+
+  display: grid;
+
+  grid-template-columns:
+    minmax(40px, 0.25fr)
+    minmax(0, 1.25fr)
+    minmax(260px, 0.8fr);
+
+  grid-template-areas:
+    "number image title";
+
+  column-gap: clamp(2rem, 5vw, 6rem);
+
+  align-items: center;
+
+  min-height: 70vh;
+
+  padding: 8vh 0;
+
+  box-sizing: border-box;
+
+  border-top: 1px solid rgba(17, 17, 17, 0.18);
+}
+
+
+/* ========================================
+   NUMBER
+   ======================================== */
+
+.cuisine-recipe-number {
+  grid-area: number;
+
+  align-self: start;
+
+  margin: 0;
+  padding-top: 0.5rem;
+
+  font-family: Arial, Helvetica, sans-serif;
+
+  font-size: 9px;
+
+  line-height: 1;
+
+  letter-spacing: 0.25em;
+
+  writing-mode: vertical-rl;
+
+  transform: rotate(180deg);
+
+  opacity: 0.55;
+}
+
+
+/* ========================================
+   IMAGE
+   ======================================== */
+
+.cuisine-recipe-image {
+  grid-area: image;
+
+  margin: 0 !important;
+
+  overflow: hidden;
+}
+
+
+.cuisine-recipe-image a {
+  display: block;
+
+  overflow: hidden;
+}
+
+
+.cuisine-recipe-image img {
+  display: block;
+
+  width: 100%;
+  height: auto;
+
+  aspect-ratio: 4 / 3;
+
+  object-fit: cover;
+
+  transform: scale(1);
+
+  transition:
+    transform 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+    opacity 0.5s ease;
+}
+
+
+/* ========================================
+   IMAGE HOVER
+   ======================================== */
+
+.cuisine-recipe:hover .cuisine-recipe-image img {
+  transform: scale(1.025);
+}
+
+
+/* ========================================
+   TITLE
+   ======================================== */
+
+.cuisine-recipe-title {
+  grid-area: title;
+
+  position: relative;
+  z-index: 2;
+
+  margin: 0 0 4rem -5vw !important;
+
+  font-family: "Times New Roman", Times, serif;
+
+  font-size: clamp(4rem, 8vw, 9rem);
+  font-weight: 400;
+
+  line-height: 0.78;
+
+  letter-spacing: -0.055em;
+
+  text-transform: uppercase;
+}
+
+
+.cuisine-recipe-title a {
+  color: #111;
+
+  text-decoration: none;
+
+  transition:
+    opacity 0.35s ease,
+    letter-spacing 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+
+.cuisine-recipe-title a:hover {
+  opacity: 0.55;
+
+  letter-spacing: -0.035em;
+}
+
+
+/* ========================================
+   DATE
+   ======================================== */
+
+.cuisine-recipe-date {
+  position: absolute;
+
+  right: 0;
+  bottom: 8vh;
+
+  margin: 0;
+
+  font-family: Arial, Helvetica, sans-serif;
+
+  font-size: 9px;
+
+  letter-spacing: 0.22em;
+
+  text-transform: uppercase;
+
+  opacity: 0.55;
+}
+
+
+/* ========================================
+   EVERY SECOND RECIPE
+   ======================================== */
+
+.cuisine-recipes
+.wp-block-post-template
+> li:nth-child(even)
+.cuisine-recipe {
+
+  grid-template-columns:
+    minmax(260px, 0.8fr)
+    minmax(0, 1.25fr)
+    minmax(40px, 0.25fr);
+
+  grid-template-areas:
+    "title image number";
+}
+
+
+.cuisine-recipes
+.wp-block-post-template
+> li:nth-child(even)
+.cuisine-recipe-title {
+
+  margin:
+    0
+    -5vw
+    4rem
+    0 !important;
+
+  text-align: right;
+}
+
+
+.cuisine-recipes
+.wp-block-post-template
+> li:nth-child(even)
+.cuisine-recipe-number {
+
+  justify-self: end;
+}
+
+
+.cuisine-recipes
+.wp-block-post-template
+> li:nth-child(even)
+.cuisine-recipe-date {
+
+  left: 0;
+  right: auto;
+}
+
+
+/* ========================================
+   LAST RECIPE
+   ======================================== */
+
+.cuisine-recipes
+.wp-block-post-template
+> li:last-child
+.cuisine-recipe {
+
+  border-bottom:
+    1px solid rgba(17, 17, 17, 0.18);
+}
+
+
+/* ========================================
+   TABLET
+   ======================================== */
+
+@media (max-width: 1000px) {
+
+  .cuisine-intro {
+    min-height: 62vh;
+  }
+
+
+  .cuisine-recipe {
+    min-height: auto;
+
+    grid-template-columns:
+      35px
+      minmax(0, 1.3fr)
+      minmax(200px, 0.7fr);
+
+    column-gap: 2rem;
+
+    padding: 7rem 0;
+  }
+
+
+  .cuisine-recipes
+  .wp-block-post-template
+  > li:nth-child(even)
+  .cuisine-recipe {
+
+    grid-template-columns:
+      minmax(200px, 0.7fr)
+      minmax(0, 1.3fr)
+      35px;
+  }
+
+}
+
+
+/* ========================================
+   MOBILE
+   ======================================== */
+
+@media (max-width: 768px) {
+
+  .nienke-cuisine {
+    width: calc(100% - 36px);
+  }
+
+
+  /* INTRO */
+
+  .cuisine-intro {
+    min-height: 55vh;
+
+    padding: 5rem 0 6rem;
+  }
+
+
+  .cuisine-eyebrow {
+    margin-bottom: 1.5rem;
+
+    font-size: 8px;
+  }
+
+
+  .cuisine-title {
+    font-size: clamp(5rem, 27vw, 9rem);
+
+    line-height: 0.78;
+  }
+
+
+  .cuisine-intro-text {
+    margin-top: 2rem;
+
+    font-size: 8px;
+
+    letter-spacing: 0.24em;
+  }
+
+
+  /* ARCHIVE */
+
+  .cuisine-recipes {
+    padding-bottom: 8rem;
+  }
+
+
+  /* RECIPE */
+
+  .cuisine-recipe,
+  .cuisine-recipes
+  .wp-block-post-template
+  > li:nth-child(even)
+  .cuisine-recipe {
+
+    display: grid;
+
+    grid-template-columns:
+      24px
+      minmax(0, 1fr);
+
+    grid-template-areas:
+      "number image"
+      ". title";
+
+    column-gap: 12px;
+
+    min-height: 0;
+
+    padding: 5rem 0;
+  }
+
+
+  /* NUMBER */
+
+  .cuisine-recipe-number,
+  .cuisine-recipes
+  .wp-block-post-template
+  > li:nth-child(even)
+  .cuisine-recipe-number {
+
+    grid-area: number;
+
+    justify-self: start;
+
+    align-self: start;
+  }
+
+
+  /* IMAGE */
+
+  .cuisine-recipe-image {
+    grid-area: image;
+  }
+
+
+  .cuisine-recipe-image img {
+    aspect-ratio: 4 / 3;
+  }
+
+
+  /* TITLE */
+
+  .cuisine-recipe-title,
+  .cuisine-recipes
+  .wp-block-post-template
+  > li:nth-child(even)
+  .cuisine-recipe-title {
+
+    grid-area: title;
+
+    width: 95%;
+
+    margin:
+      -1.1rem
+      0
+      0
+      -0.4rem !important;
+
+    text-align: left;
+
+    font-size: clamp(3.8rem, 18vw, 6.5rem);
+  }
+
+
+  /* DATE */
+
+  .cuisine-recipe-date,
+  .cuisine-recipes
+  .wp-block-post-template
+  > li:nth-child(even)
+  .cuisine-recipe-date {
+
+    position: static;
+
+    grid-column: 2;
+
+    margin-top: 1.5rem;
+
+    font-size: 8px;
+  }
+
+}
+
+
+/* ========================================
+   SMALL MOBILE
+   ======================================== */
+
+@media (max-width: 420px) {
+
+  .nienke-cuisine {
+    width: calc(100% - 28px);
+  }
+
+
+  .cuisine-title {
+    font-size: 25vw;
+  }
+
+
+  .cuisine-recipe-title,
+  .cuisine-recipes
+  .wp-block-post-template
+  > li:nth-child(even)
+  .cuisine-recipe-title {
+
+    font-size: 17vw;
+  }
+
+}

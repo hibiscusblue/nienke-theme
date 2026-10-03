@@ -1,0 +1,131 @@
+/* ========================================
+   NIENKE — INTRO
+   ======================================== */
+
+.nienke-intro {
+  position: fixed;
+  inset: 0;
+
+  z-index: 99999;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  box-sizing: border-box;
+  padding: 5vw;
+
+  background: #f4f0e7;
+
+  opacity: 1;
+  visibility: visible;
+
+  transition:
+    opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1),
+    visibility 0.9s;
+}
+
+
+/* ========================================
+   INNER
+   ======================================== */
+
+.nienke-intro-inner {
+  width: 100%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+/* ========================================
+   TITLE
+   ======================================== */
+
+.nienke-intro-title {
+  color: #111;
+
+  font-family: "Times New Roman", Times, serif;
+  font-size: clamp(3rem, 8vw, 9rem);
+  font-weight: 400;
+
+  line-height: 0.9;
+  letter-spacing: -0.045em;
+
+  text-align: center;
+  /* text-transform: uppercase; */
+
+  white-space: nowrap;
+}
+
+
+/* ========================================
+   CURSOR
+   ======================================== */
+
+.nienke-intro-cursor {
+  display: inline-block;
+
+  width: 0.055em;
+  height: 0.82em;
+
+  margin-left: 0.05em;
+
+  background: #111;
+
+  vertical-align: -0.03em;
+
+  animation: nienke-cursor-blink 0.75s steps(1) infinite;
+}
+
+
+@keyframes nienke-cursor-blink {
+
+  0%,
+  45% {
+    opacity: 1;
+  }
+
+  46%,
+  100% {
+    opacity: 0;
+  }
+
+}
+
+
+/* ========================================
+   EXIT
+   ======================================== */
+
+.nienke-intro.is-leaving {
+  opacity: 0;
+  pointer-events: none;
+}
+
+
+.nienke-intro.is-hidden {
+  display: none;
+}
+
+
+/* ========================================
+   MOBILE
+   ======================================== */
+
+@media (max-width: 768px) {
+
+  .nienke-intro {
+    padding: 24px;
+  }
+
+  .nienke-intro-title {
+    font-size: clamp(2.2rem, 10vw, 4.5rem);
+
+    line-height: 0.95;
+
+    white-space: normal;
+  }
+
+}

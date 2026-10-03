@@ -1,20 +1,69 @@
 <!-- wp:group {"className":"nienke-header","layout":{"type":"default"}} -->
 <div class="wp-block-group nienke-header">
 
-    <!-- wp:paragraph {"className":"nienke-header-dot nienke-header-dot-left"} -->
-    <p class="nienke-header-dot nienke-header-dot-left">•</p>
-    <!-- /wp:paragraph -->
+    <!-- HOME / NVZ -->
+    <!-- wp:html -->
+    <a
+        class="nienke-home-mark"
+        href="/"
+        aria-label="Nienke van Zatrate — Home"
+    >
+        NvZ
+    </a>
+    <!-- /wp:html -->
 
-    <!-- wp:navigation {"className":"nienke-main-nav","overlayMenu":"mobile","layout":{"type":"flex","justifyContent":"center"}} -->
-        <!-- wp:navigation-link {"label":"CUISINE","url":"/cuisine/"} /-->
-        <!-- wp:navigation-link {"label":"NOTES","url":"/notes/"} /-->
-        <!-- wp:navigation-link {"label":"PASSIONS","url":"/passions/"} /-->
-        <!-- wp:navigation-link {"label":"SHOP","url":"https://naim-cookies.web.app/","opensInNewTab":true} /-->
-    <!-- /wp:navigation -->
 
-    <!-- wp:paragraph {"className":"nienke-header-dot nienke-header-dot-right"} -->
-    <p class="nienke-header-dot nienke-header-dot-right">•</p>
-    <!-- /wp:paragraph -->
+    <!-- MENU -->
+    <!-- wp:group {"className":"nienke-menu","layout":{"type":"default"}} -->
+    <div class="wp-block-group nienke-menu">
+
+        <!-- BUNNY / CLOSE BUTTON -->
+        <!-- wp:html -->
+       <button
+    class="nienke-menu-toggle"
+    type="button"
+    aria-label="Open menu"
+    aria-expanded="false"
+    aria-controls="nienke-navigation"
+>
+    <span class="nienke-bunny" aria-hidden="true">
+        <span class="bunny-ear">^</span>
+
+        <span class="bunny-expression">
+            <span class="bunny-closed">.</span>
+            <span class="bunny-open">-</span>
+        </span>
+
+        <span class="bunny-ear">^</span>
+    </span>
+</button>
+        <!-- /wp:html -->
+
+
+        <!-- NAVIGATION -->
+        <!-- wp:group {"className":"nienke-nav-panel","layout":{"type":"default"}} -->
+        <div
+            id="nienke-navigation"
+            class="wp-block-group nienke-nav-panel"
+        >
+
+            <!-- wp:navigation {"className":"nienke-main-nav","overlayMenu":"never","layout":{"type":"flex","orientation":"vertical","justifyContent":"center"}} -->
+
+                <!-- wp:navigation-link {"label":"CUISINE","url":"/cuisine/"} /-->
+
+                <!-- wp:navigation-link {"label":"INSIGHTS","url":"/notes/"} /-->
+
+                <!-- wp:navigation-link {"label":"PASSIONS","url":"/passions/"} /-->
+
+                <!-- wp:navigation-link {"label":"SHOP","url":"https://naim-cookies.web.app/","opensInNewTab":true} /-->
+
+            <!-- /wp:navigation -->
+
+        </div>
+        <!-- /wp:group -->
+
+    </div>
+    <!-- /wp:group -->
 
 </div>
 <!-- /wp:group -->

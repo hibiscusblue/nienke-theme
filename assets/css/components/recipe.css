@@ -1,0 +1,634 @@
+/* ========================================
+   NIENKE — RECIPE EDITORIAL
+   ======================================== */
+
+.recipe-editorial {
+  width: min(94vw, 1500px);
+  margin: 0 auto;
+
+  box-sizing: border-box;
+
+  color: #111;
+}
+
+
+/* ========================================
+   HERO
+   ======================================== */
+
+.recipe-hero {
+  min-height: 78vh;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  padding: 8vh 0 10vh;
+
+  box-sizing: border-box;
+}
+
+
+.recipe-eyebrow {
+  margin: 0 0 2rem;
+
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 11px;
+  font-weight: 400;
+
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+}
+
+
+.recipe-title {
+  margin: 0;
+
+  font-family: "Times New Roman", Times, serif;
+
+  font-size: clamp(5rem, 14vw, 14rem);
+  font-weight: 400;
+
+  line-height: 0.78;
+  letter-spacing: -0.065em;
+
+  text-transform: uppercase;
+}
+
+
+.recipe-tagline {
+  margin: 2.8rem 0 0;
+
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 11px;
+
+  line-height: 1.5;
+  letter-spacing: 0.35em;
+
+  text-transform: uppercase;
+}
+
+
+/* ========================================
+   INGREDIENTS
+   ======================================== */
+
+.recipe-ingredients {
+  display: grid;
+  grid-template-columns: minmax(0, 1.65fr) minmax(260px, 0.75fr);
+
+  gap: clamp(3rem, 7vw, 8rem);
+
+  align-items: center;
+
+  padding: 5vh 0 16vh;
+}
+
+
+.recipe-ingredients-image {
+  min-width: 0;
+}
+
+
+.recipe-ingredients-image img {
+  display: block;
+
+  width: 100%;
+  height: auto;
+
+  object-fit: cover;
+}
+
+
+.recipe-ingredients-content {
+  max-width: 340px;
+}
+
+
+.recipe-section-number {
+  margin: 0 0 1.5rem;
+
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 10px;
+
+  letter-spacing: 0.22em;
+
+  opacity: 0.55;
+}
+
+
+.recipe-ingredients-content h2 {
+  margin: 0 0 2.5rem;
+
+  font-family: "Times New Roman", Times, serif;
+  font-size: clamp(2.3rem, 4vw, 4.8rem);
+  font-weight: 400;
+
+  line-height: 0.95;
+  letter-spacing: -0.035em;
+}
+
+
+.recipe-ingredients-content ul {
+  margin: 0;
+  padding: 0;
+
+  list-style: none;
+}
+
+
+.recipe-ingredients-content li {
+  padding: 0.38rem 0;
+
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+
+  line-height: 1.45;
+  letter-spacing: 0.04em;
+}
+
+
+/* Tiny editorial markers */
+
+.recipe-ingredients-content li::before {
+  content: "·";
+
+  display: inline-block;
+
+  width: 18px;
+}
+
+
+/* ========================================
+   METHOD HEADING
+   ======================================== */
+
+.recipe-method {
+  padding-top: 8vh;
+}
+
+
+.recipe-method-heading {
+  margin-bottom: 15vh;
+}
+
+
+.recipe-method-heading p {
+  margin: 0 0 1.5rem;
+
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 10px;
+
+  letter-spacing: 0.3em;
+
+  text-transform: uppercase;
+}
+
+
+.recipe-method-heading h2 {
+  margin: 0;
+
+  font-family: "Times New Roman", Times, serif;
+
+  font-size: clamp(5rem, 12vw, 12rem);
+  font-weight: 400;
+
+  line-height: 0.8;
+  letter-spacing: -0.06em;
+}
+
+
+/* ========================================
+   RECIPE STEPS
+   ======================================== */
+
+.recipe-step {
+  position: relative;
+
+  display: grid;
+  grid-template-columns: minmax(0, 1.45fr) minmax(250px, 0.65fr);
+
+  gap: clamp(3rem, 8vw, 9rem);
+
+  align-items: center;
+
+  margin-bottom: clamp(8rem, 17vh, 15rem);
+}
+
+
+.recipe-step-image {
+  min-width: 0;
+}
+
+
+.recipe-step-image img {
+  display: block;
+
+  width: 100%;
+  height: auto;
+
+  object-fit: cover;
+}
+
+
+.recipe-step-copy {
+  max-width: 330px;
+}
+
+
+.recipe-step-number {
+  display: block;
+
+  margin-bottom: 2rem;
+
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 10px;
+
+  letter-spacing: 0.25em;
+
+  opacity: 0.5;
+}
+
+
+.recipe-step-copy h3 {
+  margin: 0 0 1.6rem;
+
+  font-family: "Times New Roman", Times, serif;
+
+  font-size: clamp(3rem, 5.5vw, 6.5rem);
+  font-weight: 400;
+
+  line-height: 0.85;
+  letter-spacing: -0.05em;
+}
+
+
+.recipe-step-copy p {
+  max-width: 28ch;
+
+  margin: 0;
+
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 13px;
+
+  line-height: 1.7;
+  letter-spacing: 0.025em;
+}
+
+
+/* ========================================
+   ALTERNATING STEPS
+   ======================================== */
+
+.recipe-step-right {
+  grid-template-columns: minmax(250px, 0.65fr) minmax(0, 1.45fr);
+}
+
+
+.recipe-step-right .recipe-step-image {
+  grid-column: 2;
+  grid-row: 1;
+}
+
+
+.recipe-step-right .recipe-step-copy {
+  grid-column: 1;
+  grid-row: 1;
+
+  justify-self: end;
+}
+
+
+/* ========================================
+   FINAL STEP
+   ======================================== */
+
+.recipe-step-final {
+  display: block;
+
+  margin-top: 18vh;
+}
+
+
+.recipe-step-final .recipe-step-image {
+  width: min(100%, 1100px);
+
+  margin: 0 auto;
+}
+
+
+.recipe-step-final .recipe-step-copy {
+  width: min(90%, 500px);
+  max-width: none;
+
+  margin: -3rem 8% 0 auto;
+
+  position: relative;
+  z-index: 2;
+
+  padding: 2.5rem 3rem;
+
+  box-sizing: border-box;
+
+  background: rgba(244, 240, 231, 0.86);
+
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+}
+
+
+/* ========================================
+   ENDING
+   ======================================== */
+
+.recipe-ending {
+  min-height: 70vh;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  padding: 15vh 0 12vh;
+
+  box-sizing: border-box;
+
+  text-align: center;
+}
+
+
+.recipe-ending-small {
+  margin: 0 0 1.5rem;
+
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 9px;
+
+  letter-spacing: 0.35em;
+
+  text-transform: uppercase;
+}
+
+
+.recipe-ending-name {
+  margin: 0 0 4rem;
+
+  font-family: "Times New Roman", Times, serif;
+
+  font-size: clamp(2.5rem, 6vw, 6rem);
+  font-weight: 400;
+
+  line-height: 0.9;
+  letter-spacing: -0.045em;
+}
+
+
+.recipe-back {
+  position: relative;
+
+  color: #111;
+
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 10px;
+
+  letter-spacing: 0.25em;
+
+  text-decoration: none;
+  text-transform: uppercase;
+
+  transition:
+    opacity 0.3s ease,
+    letter-spacing 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+
+.recipe-back:hover {
+  opacity: 0.5;
+  letter-spacing: 0.32em;
+}
+
+
+/* ========================================
+   TABLET
+   ======================================== */
+
+@media (max-width: 1000px) {
+
+  .recipe-hero {
+    min-height: 68vh;
+  }
+
+
+  .recipe-ingredients {
+    grid-template-columns: minmax(0, 1.3fr) minmax(230px, 0.7fr);
+
+    gap: 3rem;
+  }
+
+
+  .recipe-step {
+    gap: 3rem;
+  }
+
+}
+
+
+/* ========================================
+   MOBILE
+   ======================================== */
+
+@media (max-width: 768px) {
+
+  .recipe-editorial {
+    width: calc(100% - 36px);
+  }
+
+
+  /* HERO */
+
+  .recipe-hero {
+    min-height: 62vh;
+
+    padding: 5rem 0 6rem;
+  }
+
+
+  .recipe-eyebrow {
+    margin-bottom: 1.5rem;
+
+    font-size: 9px;
+  }
+
+
+  .recipe-title {
+    font-size: clamp(4rem, 22vw, 7rem);
+
+    line-height: 0.82;
+  }
+
+
+  .recipe-tagline {
+    max-width: 90%;
+
+    margin-top: 2rem;
+
+    font-size: 9px;
+    line-height: 1.8;
+
+    letter-spacing: 0.24em;
+  }
+
+
+  /* INGREDIENTS */
+
+  .recipe-ingredients {
+    display: flex;
+    flex-direction: column;
+
+    gap: 3rem;
+
+    padding: 2rem 0 8rem;
+  }
+
+
+  .recipe-ingredients-content {
+    width: 82%;
+    max-width: none;
+
+    align-self: flex-end;
+  }
+
+
+  .recipe-ingredients-content h2 {
+    margin-bottom: 2rem;
+  }
+
+
+  /* METHOD */
+
+  .recipe-method {
+    padding-top: 4rem;
+  }
+
+
+  .recipe-method-heading {
+    margin-bottom: 7rem;
+  }
+
+
+  .recipe-method-heading h2 {
+    font-size: clamp(4.5rem, 23vw, 8rem);
+  }
+
+
+  /* STEPS */
+
+  .recipe-step,
+  .recipe-step-right {
+    display: flex;
+    flex-direction: column;
+
+    gap: 2rem;
+
+    margin-bottom: 8rem;
+  }
+
+
+  .recipe-step-right .recipe-step-image,
+  .recipe-step-right .recipe-step-copy {
+    grid-column: auto;
+    grid-row: auto;
+  }
+
+
+  .recipe-step-copy,
+  .recipe-step-right .recipe-step-copy {
+    width: 82%;
+    max-width: none;
+
+    align-self: flex-end;
+    justify-self: auto;
+  }
+
+
+  .recipe-step:nth-of-type(even) .recipe-step-copy {
+    align-self: flex-start;
+  }
+
+
+  .recipe-step-number {
+    margin-bottom: 1.2rem;
+  }
+
+
+  .recipe-step-copy h3 {
+    font-size: clamp(3.2rem, 16vw, 5.5rem);
+
+    margin-bottom: 1rem;
+  }
+
+
+  /* FINAL */
+
+  .recipe-step-final {
+    margin-top: 4rem;
+  }
+
+
+  .recipe-step-final .recipe-step-copy {
+    width: 88%;
+
+    margin: -1.5rem 0 0 auto;
+
+    padding: 2rem;
+
+    align-self: auto;
+  }
+
+
+  /* END */
+
+  .recipe-ending {
+    min-height: 60vh;
+
+    padding: 8rem 0 6rem;
+  }
+
+
+  .recipe-ending-name {
+    margin-bottom: 3rem;
+  }
+
+}
+
+
+/* ========================================
+   SMALL MOBILE
+   ======================================== */
+
+@media (max-width: 420px) {
+
+  .recipe-editorial {
+    width: calc(100% - 28px);
+  }
+
+
+  .recipe-title {
+    font-size: 20vw;
+  }
+
+
+  .recipe-ingredients-content,
+  .recipe-step-copy,
+  .recipe-step-right .recipe-step-copy {
+    width: 88%;
+  }
+
+
+  .recipe-step-final .recipe-step-copy {
+    width: 92%;
+
+    padding: 1.6rem;
+  }
+
+}

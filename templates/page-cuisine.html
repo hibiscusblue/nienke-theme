@@ -1,0 +1,112 @@
+<!-- ========================================
+     NIENKE — CUISINE
+     ======================================== -->
+
+
+<!-- ========================================
+     HEADER
+     ======================================== -->
+
+<!-- wp:template-part {"slug":"header","tagName":"header"} /-->
+
+
+<!-- ========================================
+     CUISINE
+     ======================================== -->
+
+<!-- wp:group {"tagName":"main","className":"nienke-cuisine","layout":{"type":"default"}} -->
+<main class="wp-block-group nienke-cuisine">
+
+
+  <!-- ======================================
+       INTRO
+       ====================================== -->
+
+  <!-- wp:html -->
+
+  <section class="cuisine-intro">
+
+    <p class="cuisine-eyebrow">
+      NIENKE VAN ZATRATE / CUISINE
+    </p>
+
+    <h1 class="cuisine-title">
+      CUISINE
+    </h1>
+
+    <p class="cuisine-intro-text">
+      RECIPES · COLOUR · CURIOSITY
+    </p>
+
+  </section>
+
+  <!-- /wp:html -->
+
+
+  <!-- ======================================
+       RECIPES
+       ====================================== -->
+
+  <!-- wp:query {"query":{"perPage":20,"pages":0,"offset":0,"postType":"post","order":"desc","orderBy":"date","author":"","search":"","exclude":[],"sticky":"","inherit":false,"taxQuery":{"category":[]}},"namespace":"nienke/cuisine"} -->
+
+  <div class="wp-block-query cuisine-recipes">
+
+    <!-- wp:post-template -->
+
+
+      <!-- ==================================
+           RECIPE
+           ================================== -->
+
+      <!-- wp:group {"className":"cuisine-recipe","layout":{"type":"default"}} -->
+
+      <div class="wp-block-group cuisine-recipe">
+
+
+        <!-- NUMBER -->
+
+        <!-- wp:paragraph {"className":"cuisine-recipe-number"} -->
+
+        <p class="cuisine-recipe-number">
+          RECIPE
+        </p>
+
+        <!-- /wp:paragraph -->
+
+
+        <!-- IMAGE -->
+
+        <!-- wp:post-featured-image {"isLink":true,"className":"cuisine-recipe-image"} /-->
+
+
+        <!-- TITLE -->
+
+        <!-- wp:post-title {"isLink":true,"className":"cuisine-recipe-title"} /-->
+
+
+        <!-- DATE -->
+
+        <!-- wp:post-date {"className":"cuisine-recipe-date"} /-->
+
+
+      </div>
+
+      <!-- /wp:group -->
+
+
+    <!-- /wp:post-template -->
+
+  </div>
+
+  <!-- /wp:query -->
+
+
+</main>
+<!-- /wp:group -->
+
+
+<!-- ========================================
+     FOOTER
+     ======================================== -->
+
+<!-- wp:template-part {"slug":"footer","tagName":"footer"} /-->

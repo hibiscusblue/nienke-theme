@@ -1,439 +1,687 @@
 /* ==========================================================
    NIENKE VAN ZATRATE — HOME
-   CONTROLLED CHAOS COLLAGE
-   ==========================================================
-
-   QUICK CONTROLS
-
-   width      = size
-   left/right = move horizontally
-   top/bottom = move vertically
-   z-index    = layers
-
-   Higher z-index = closer to the front.
-   Lower z-index  = farther in the background.
+   Editorial controlled-chaos mosaic
    ========================================================== */
 
 
 /* ==========================================================
-   01. PAGE + COLLAGE CANVAS
+   01. PAGE
    ========================================================== */
 
 .nienke-home {
   width: 100%;
   margin: 0;
   padding: 0;
+
+  overflow: hidden;
+
+  color: #111;
   background: #f4f0e7;
 }
 
+
+/* ==========================================================
+   02. EDITORIAL CANVAS
+   ========================================================== */
+
 .nienke-mosaic {
   position: relative;
+
   width: 100%;
-  height: 780px;
-  min-height: 780px;
+  height: calc(100svh - 54px);
+  min-height: 720px;
+
   overflow: hidden;
+  isolation: isolate;
+
+  background: #f4f0e7;
 }
 
 
 /* ==========================================================
-   02. SHARED IMAGE SETTINGS
-   Do not normally edit this section.
+   03. CATEGORY WORDS
    ========================================================== */
 
-.mosaic-image {
+.mosaic-word {
   position: absolute;
-  margin: 0;
-}
+  z-index: 10;
 
-.mosaic-image img {
   display: block;
-  width: 100%;
-  height: auto;
-  object-fit: contain;
+
+  margin: 0;
+  padding: 0;
+
+  color: #111;
+
+  font-family:
+    "Times New Roman",
+    Times,
+    serif;
+
+  font-size: clamp(5rem, 7.4vw, 9rem);
+  font-weight: 400;
+
+  line-height: 0.82;
+  letter-spacing: -0.045em;
+
+  text-transform: uppercase;
+  text-decoration: none;
+  white-space: nowrap;
+
+  transition:
+    opacity 0.35s ease,
+    letter-spacing 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+
+.mosaic-word:hover,
+.mosaic-word:focus-visible {
+  color: #111;
+
+  opacity: 0.48;
+
+  letter-spacing: -0.02em;
+
+  text-decoration: none;
+
+  transform: translateX(0.035em);
 }
 
 
 /* ==========================================================
-   🐈 CAT
+   04. DESKTOP TYPOGRAPHY POSITION
    ========================================================== */
 
-.mosaic-image-01 {
-  position: absolute;
 
-  width: 27%;       /* SIZE */
-  right: -2%;        /* LEFT ↔ RIGHT */
-  top: 55%;          /* UP ↕ DOWN */
+/* CUISINE — upper left */
 
-  z-index: 1;       /* LAYER */
+.mosaic-cuisine {
+  top: 0%;
+  left: 2%;
+}
+
+
+/* INSIGHTS — upper right */
+
+.mosaic-notes {
+  top: 40%;
+  right: 14%;
+}
+
+
+/* PASSIONS — lower left / centre */
+
+.mosaic-obsessions {
+  left: 25%;
+  bottom: 5%;
 }
 
 
 /* ==========================================================
-   🍪 RASPBERRY COOKIE — ENTER THE KITCHEN
+   05. IMAGE SYSTEM
    ========================================================== */
 
+.mosaic-image,
 .mosaic-image-02 {
   position: absolute;
 
-  width: 25%;       /* SIZE */
-  right: 30%;        /* LEFT ↔ RIGHT */
-  bottom: -20%;       /* UP ↕ DOWN */
-
-  z-index: 3;       /* LAYER */
-
   display: block;
-  color: #000;
-  text-decoration: none;
+
+  margin: 0;
+  padding: 0;
 }
 
+
+.mosaic-image img,
 .mosaic-image-02 img {
   display: block;
+
   width: 100%;
   height: auto;
 
-  transition: transform 0.35s ease;
-}
+  margin: 0;
+  padding: 0;
 
+  user-select: none;
 
-/* ==========================================================
-   ENTER THE KITCHEN TEXT
-   ========================================================== */
-
-.mosaic-image-02 .mosaic-enter {
-  position: absolute;
-
-  right: 80%;       /* LEFT ↔ RIGHT */
-  bottom: 20%;      /* UP ↕ DOWN */
-
-  width: max-content;
-
-  color: #000;
-  font-family: Georgia, "Times New Roman", serif;
-  font-size: 48px;
-  font-style: italic;
-  text-decoration: none;
-
-  z-index: 10;      /* LAYER */
-}
-
-@media (hover: hover) {
-
-  .mosaic-image-02:hover img {
-    transform: scale(1.035) rotate(1deg);
-  }
-
-  .mosaic-image-02:hover .mosaic-enter {
-    text-decoration: underline;
-  }
-}
-
-
-/* ==========================================================
-   🎬 SECOND LIFE — PASSIONS
-   ========================================================== */
-
-.mosaic-image-03 {
-  position: absolute;
-
-  width: 47%;       /* SIZE */
-  left: -14%;       /* LEFT ↔ RIGHT */
-  bottom: 4.8%;         /* UP ↕ DOWN */
-
-  z-index: 1;       /* LAYER */
-}
-
-
-/* ==========================================================
-   🍽️ FRITTATA SLICE — CUISINE
-   ========================================================== */
-
-.mosaic-image-04 {
-  position: absolute;
-
-  width: 25%;       /* SIZE */
-  left: 25%;        /* LEFT ↔ RIGHT */
-  top: 3%;         /* UP ↕ DOWN */
-
-  z-index: 1;       /* LAYER */
-}
-
-
-/* ==========================================================
-   👒 QUIET — NOTES
-   ========================================================== */
-
-.mosaic-image-05 {
-  position: absolute;
-
-  width: 58%;       /* SIZE */
-  right: -20%;      /* LEFT ↔ RIGHT */
-  top: 0%;         /* UP ↕ DOWN */
-
-  z-index: 1;       /* LAYER */
-}
-
-
-/* ==========================================================
-   ✦ NIENKE VAN ZATRATE
-   ========================================================== */
-
-.mosaic-name {
-  position: absolute;
-
-  left: 50%;        /* LEFT ↔ RIGHT */
-  top: 48%;         /* UP ↕ DOWN */
-
-  transform: translate(-50%, -50%);
-
-  display: flex;
-  flex-direction: column;
-
-  font-family: Georgia, "Times New Roman", serif;
-
-  /* SIZE */
-  font-size: clamp(72px, 10vw, 170px);
-
-  font-weight: 400;
-  line-height: 0.78;
-  letter-spacing: -0.06em;
-  white-space: nowrap;
-
-  z-index: 10;      /* LAYER */
-}
-
-/* Position of VAN ZATRATE relative to NIENKE */
-
-.mosaic-name span:last-child {
-  margin-left: 0.7em;
-}
-
-
-/* ==========================================================
-   SHARED SETTINGS — CUISINE / NOTES / PASSIONS
-   ========================================================== */
-
-.mosaic-word {
-  position: absolute;
-
-  color: inherit;
-  text-decoration: none;
-
-  font-size: 52px;
-  letter-spacing: 0.18em;
-  font-weight: 400;
-
-  z-index: 10;
-}
-
-.mosaic-word:visited,
-.mosaic-word:hover,
-.mosaic-word:active {
-  color: inherit;
-  text-decoration: none;
-}
-
-
-/* ==========================================================
-   CUISINE
-   ========================================================== */
-
-.mosaic-cuisine {
-  left: 8%;         /* LEFT ↔ RIGHT */
-  top: 19%;         /* UP ↕ DOWN */
-
-  transform: rotate(-8deg);
-
-  z-index: 10;      /* LAYER */
-}
-
-
-/* ==========================================================
-   NOTES
-   ========================================================== */
-
-.mosaic-notes {
-  right: 28%;       /* LEFT ↔ RIGHT */
-  top: 10%;         /* UP ↕ DOWN */
-
-  transform: rotate(6deg);
-
-  z-index: 10;      /* LAYER */
-}
-
-
-/* ==========================================================
-   PASSIONS
-   ========================================================== */
-
-.mosaic-obsessions {
-  left: 25%;        /* LEFT ↔ RIGHT */
-  bottom: 13%;      /* UP ↕ DOWN */
-
-  transform: rotate(4deg);
-
-  z-index: 10;      /* LAYER */
-}
-
-/* ==========================================================
-   INTERACTIVE EDITORIAL WORDS — DESKTOP
-   ========================================================== */
-
-.mosaic-word {
-  cursor: pointer;
+  transform-origin: center;
 
   transition:
-    transform 0.45s cubic-bezier(.2,.8,.2,1),
-    letter-spacing 0.45s ease,
-    opacity 0.3s ease;
+    transform 0.9s cubic-bezier(0.16, 1, 0.3, 1),
+    opacity 0.4s ease;
 }
-
-
-/* CUISINE */
-
-.mosaic-cuisine:hover {
-  transform: rotate(-3deg) scale(1.08);
-  letter-spacing: 0.28em;
-}
-
-
-/* NOTES */
-
-.mosaic-notes:hover {
-  transform: rotate(-2deg) scale(1.08);
-  letter-spacing: 0.30em;
-}
-
-
-/* PASSIONS */
-
-.mosaic-obsessions:hover {
-  transform: rotate(-2deg) scale(1.08);
-  letter-spacing: 0.30em;
-}
-
-/* ==========================================================
-   📱 MOBILE COLLAGE
-   Everything below here affects ONLY screens ≤ 700px.
-   Desktop stays untouched.
-   ========================================================== */
 
 
 /* ==========================================================
-   MOBILE — CONTROLLED CHAOS
-   Independent from desktop
+   06. FRITTATA
    ========================================================== */
 
-@media (max-width: 700px) {
+/*
+   CUISINE sits behind the food.
 
-  /* MOBILE CANVAS */
+   The slice is intentionally large enough to interrupt
+   the typography without swallowing the whole left side.
+*/
+
+.mosaic-image-04 {
+  z-index: 16;
+
+  width: 31%;
+
+  left: 3.5%;
+  top: 10%;
+}
+
+
+.mosaic-image-04:hover img {
+  transform:
+    translateY(-7px)
+    rotate(-0.3deg)
+    scale(1.012);
+}
+
+
+/* ==========================================================
+   07. QUIET
+   ========================================================== */
+
+/*
+   Quiet occupies the upper-right edge.
+
+   INSIGHTS runs into the portrait rather than sitting
+   separately beside it.
+*/
+
+.mosaic-image-05 {
+  z-index: 15;
+
+  width: 43%;
+
+  right: 2%;
+  top: 0%;
+}
+
+
+.mosaic-image-05:hover img {
+  transform:
+    translateY(-6px)
+    scale(1.008);
+}
+
+
+/* ==========================================================
+   08. SECOND LIFE
+   ========================================================== */
+
+/*
+   Bottom-left counterweight.
+
+   Cropping is intentional: the artwork should appear
+   to continue beyond the viewport.
+*/
+
+.mosaic-image-03 {
+  z-index: 14;
+
+  width: 42%;
+
+  left: -10%;
+  bottom: 2.5%;
+}
+
+
+.mosaic-image-03:hover img {
+  transform:
+    translateY(-7px)
+    rotate(0.25deg)
+    scale(1.008);
+}
+
+
+/* ==========================================================
+   09. RASPBERRY COOKIE
+   ========================================================== */
+
+/*
+   Small surreal punctuation mark.
+
+   It belongs visually to PASSIONS rather than floating
+   in the exact centre of the page.
+*/
+
+.mosaic-image-02 {
+  z-index: 17;
+
+  width: 25%;
+
+  left: 25%;
+  bottom: 30%;
+
+  color: #111;
+  text-decoration: none;
+}
+
+
+.mosaic-image-02:hover img {
+  transform:
+    translateY(-9px)
+    rotate(1deg)
+    scale(1.018);
+}
+
+
+/* ==========================================================
+   10. CAT
+   ========================================================== */
+
+/*
+   The cat is intentionally intrusive.
+
+   Never try to fit the entire cat neatly into the screen.
+   The crop is part of the composition.
+*/
+
+.mosaic-image-01 {
+  z-index: 18;
+
+  width: 32%;
+
+  right: -5%;
+  bottom: 0%;
+}
+
+
+.mosaic-image-01:hover img {
+  transform:
+    translateY(-8px)
+    rotate(-0.35deg)
+    scale(1.01);
+}
+
+
+/* ==========================================================
+   11. LARGE DESKTOP
+   1600px+
+   ========================================================== */
+
+@media (min-width: 1600px) {
 
   .nienke-mosaic {
-    height: 780px;
-    min-height: 780px;
-    overflow: hidden;
+    min-height: 0;
   }
+
+
+  /* TYPE */
+
+  .mosaic-word {
+    font-size: clamp(6rem, 7.2vw, 9rem);
+  }
+
+
+  .mosaic-cuisine {
+    top: 10%;
+    left: 5.5%;
+  }
+
+
+  .mosaic-notes {
+    top: 21%;
+    left: 46%;
+  }
+
+
+  .mosaic-obsessions {
+    left: 24%;
+    bottom: 2%;
+  }
+
+
+  /* IMAGES */
+
+  .mosaic-image-04 {
+    width: 31%;
+    left: 3.5%;
+    top: 10%;
+  }
+
+
+  .mosaic-image-05 {
+    width: 25%;
+    right: 8%;
+    top: 4%;
+  }
+
+
+  .mosaic-image-03 {
+    width: 28%;
+    left: -4%;
+    bottom: -16%;
+  }
+
+
+  .mosaic-image-02 {
+    width: 18%;
+    left: 55%;
+    bottom: 3%;
+  }
+
+
+  .mosaic-image-01 {
+    width: 27%;
+    right: -5%;
+    bottom: -13%;
+  }
+}
+
+
+/* ==========================================================
+   12. SMALL DESKTOP / TABLET LANDSCAPE
+   769px — 1199px
+   ========================================================== */
+
+@media (min-width: 769px) and (max-width: 1199px) {
+
+  .nienke-mosaic {
+    min-height: 680px;
+  }
+
+
+  .mosaic-word {
+    font-size: clamp(4rem, 8vw, 6.5rem);
+  }
+
+
+  /* TYPE */
+
+  .mosaic-cuisine {
+    top: 15%;
+    left: 4%;
+  }
+
+
+  .mosaic-notes {
+    top: 18%;
+    left: 45%;
+  }
+
+
+  .mosaic-obsessions {
+    left: 21%;
+    bottom: 5%;
+  }
+
+
+  /* IMAGES */
+
+  .mosaic-image-04 {
+    width: 34%;
+    left: 4%;
+    top: 12%;
+  }
+
+
+  .mosaic-image-05 {
+    width: 31%;
+    right: 2%;
+    top: 5%;
+  }
+
+
+  .mosaic-image-03 {
+    width: 31%;
+    left: -5%;
+    bottom: -10%;
+  }
+
+
+  .mosaic-image-02 {
+    width: 22%;
+    left: 53%;
+    bottom: 1%;
+  }
+
+
+  .mosaic-image-01 {
+    width: 33%;
+    right: -7%;
+    bottom: -10%;
+  }
+}
+
+
+/* ==========================================================
+   13. MOBILE
+   768px AND BELOW
+
+   This becomes a vertical editorial composition rather
+   than a squeezed version of desktop.
+   ========================================================== */
+
+@media (max-width: 768px) {
+
+  .nienke-mosaic {
+    height: calc(100svh - 50px);
+    min-height: 650px;
+  }
+
+
+  /* TYPE */
+
+  .mosaic-word {
+    font-size: clamp(2.6rem, 12vw, 4.5rem);
+
+    line-height: 0.86;
+    letter-spacing: -0.045em;
+  }
+
+
+  .mosaic-cuisine {
+    top: 20%;
+    left: 4%;
+  }
+
+
+  .mosaic-notes {
+    top: 10%;
+    left: auto;
+    right: 5%;
+  }
+
+
+  .mosaic-obsessions {
+    left: 5%;
+    bottom: 11%;
+  }
+
+
+  /* FRITTATA */
+
+  .mosaic-image-04 {
+    width: 49%;
+
+    left: 25%;
+    top: 5%;
+  }
+
+
+  /* QUIET */
+
+  .mosaic-image-05 {
+    width: 53%;
+
+    right: -8%;
+    top: 17%;
+  }
+
+
+  /* SECOND LIFE */
+
+  .mosaic-image-03 {
+    width: 47%;
+
+    left: -10%;
+    bottom: -4%;
+  }
+
+
+  /* COOKIE */
+
+  .mosaic-image-02 {
+    width: 34%;
+
+    left: 42%;
+    bottom: -1%;
+  }
+
 
   /* CAT */
 
   .mosaic-image-01 {
     width: 48%;
-    left: 47%;
-    top: 12%;
-    z-index: 1;
+
+    right: -13%;
+    bottom: -5%;
   }
-
-/* RASPBERRY COOKIE */
-
-.mosaic-image-02 {
-  width: 51%;
-  right: 3%;
-  bottom: 5%;
-  z-index: 3;
 }
 
-/* ENTER THE KITCHEN */
 
-.mosaic-image-02 .mosaic-word {
-  right: 0;
-  bottom: 80%;
+/* ==========================================================
+   14. SMALL MOBILE
+   ========================================================== */
 
-  font-size: 18px;
-  white-space: nowrap;
-  z-index: 10;
-}
+@media (max-width: 420px) {
 
-  /* SECOND LIFE */
-
-  .mosaic-image-03 {
-    width: 79%;
-    left: -12%;
-    top: 65%;
-    z-index: 1;
+  .nienke-mosaic {
+    min-height: 610px;
   }
 
-  /* FRITTATA */
 
-.mosaic-image-04 {
-  width: 52%;
-  left: 0%;
-  top: 4%;
-  z-index: 1;
-}
-  /* QUIET */
-
-  .mosaic-image-05 {
-    width: 75%;
-    right: -22%;
-    top: 47%;
-    z-index: 1;
+  .mosaic-word {
+    font-size: clamp(2.3rem, 11.5vw, 3.4rem);
   }
 
-  /* NIENKE VAN ZATRATE */
-
-.mosaic-name {
-  left: 50%;
-  top: 43%;
-
-  font-size: clamp(58px, 12vw, 60px);
-  z-index: 10;
-}
-
-  .mosaic-name span:last-child {
-    margin-left: 0.15em;
-  }
-
-  /* CUISINE */
 
   .mosaic-cuisine {
-    left: 6%;
     top: 20%;
-
-    font-size: 29px;
-    transform: rotate(-8deg);
-    z-index: 10;
+    left: 4%;
   }
 
-  /* NOTES */
 
-.mosaic-notes {
-  right: 4%;
-  top: 31%;
+  .mosaic-notes {
+    top: 10%;
+    right: 4%;
+  }
 
-  font-size: 28px;
-  transform: rotate(6deg);
-  z-index: 20;
-}
-
-  /* PASSIONS */
 
   .mosaic-obsessions {
-    left: 8%;
-    top: 60%;
-    bottom: auto;
-
-    font-size: 28px;
-    transform: rotate(4deg);
-    z-index: 10;
+    left: 4%;
+    bottom: 12%;
   }
 
+
+  .mosaic-image-04 {
+    width: 51%;
+
+    left: 24%;
+    top: 5%;
+  }
+
+
+  .mosaic-image-05 {
+    width: 56%;
+
+    right: -10%;
+    top: 17%;
+  }
+
+
+  .mosaic-image-03 {
+    width: 50%;
+
+    left: -12%;
+    bottom: -4%;
+  }
+
+
+  .mosaic-image-02 {
+    width: 36%;
+
+    left: 41%;
+    bottom: -1%;
+  }
+
+
+  .mosaic-image-01 {
+    width: 51%;
+
+    right: -15%;
+    bottom: -5%;
+  }
+}
+
+
+/* ==========================================================
+   15. SHORT LAPTOP SCREENS
+   ========================================================== */
+
+@media (min-width: 769px) and (max-height: 760px) {
+
+  .nienke-mosaic {
+    min-height: 620px;
+  }
+
+
+  .mosaic-word {
+    font-size: clamp(4.5rem, 7vw, 7.5rem);
+  }
+
+
+  .mosaic-cuisine {
+    top: 14%;
+  }
+
+
+  .mosaic-notes {
+    top: 18%;
+  }
+
+
+  .mosaic-image-04 {
+    width: 27%;
+  }
+
+
+  .mosaic-image-05 {
+    width: 25%;
+  }
+
+
+  .mosaic-image-03 {
+    width: 26%;
+  }
+
+
+  .mosaic-image-02 {
+    width: 17%;
+  }
+
+
+  .mosaic-image-01 {
+    width: 27%;
+  }
+}
+
+
+/* ==========================================================
+   16. ACCESSIBILITY
+   ========================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .mosaic-word,
+  .mosaic-image img,
+  .mosaic-image-02 img {
+    transition: none;
+  }
 }
