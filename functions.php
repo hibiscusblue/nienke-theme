@@ -107,6 +107,16 @@ function nienke_enqueue_assets() {
         file_exists($cuisine_css_path) ? filemtime($cuisine_css_path) : '1.0.0'
     );
 
+    // Recipe index — Savoury & Sweet
+$recipe_index_css_path = get_theme_file_path('/assets/css/pages/recipe-index.css');
+
+wp_enqueue_style(
+    'nienke-recipe-index',
+    get_theme_file_uri('/assets/css/pages/recipe-index.css'),
+    array('nienke-base'),
+    file_exists($recipe_index_css_path) ? filemtime($recipe_index_css_path) : '1.0.0'
+);
+
 
     /* ========================================
        JAVASCRIPT
