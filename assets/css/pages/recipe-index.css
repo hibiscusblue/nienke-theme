@@ -2,26 +2,56 @@
    NIENKE — RECIPE INDEX
    ========================================================== */
 
-
 /* ========================================
    PAGE
    ======================================== */
 
+body > .wp-site-blocks {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* ========================================
+   FULL-SCREEN INDEX PAGE
+   ======================================== */
+
+html:has(.recipe-index),
+html:has(.recipe-index) body {
+  width: 100%;
+  height: 100%;
+  max-width: 100%;
+
+  margin: 0 !important;
+  padding: 0 !important;
+
+  overflow: hidden !important;
+}
+
 .recipe-index {
-  position: relative;
+  position: fixed;
+
+  top: 54px;
+  left: 0;
+  right: 0;
+  bottom: 0;
 
   width: 100%;
-  height: calc(100svh - 54px);
 
   margin: 0;
   padding: 0;
 
+  box-sizing: border-box;
   overflow: hidden;
 
   background: #f4f0e7;
   color: #111;
 }
 
+.recipe-index *,
+.recipe-index *::before,
+.recipe-index *::after {
+  box-sizing: border-box;
+}
 
 /* ========================================
    RECIPE LIST
@@ -29,29 +59,21 @@
 
 .recipe-index-list {
   position: absolute;
-
   inset: 0;
 
-  display: flex;
-  flex-direction: column;
-
-  align-items: center;
-  justify-content: center;
-
-  gap: clamp(18px, 3vh, 42px);
-
   margin: 0;
-  padding: 5%;
-
-  box-sizing: border-box;
+  padding: 0;
+  overflow: hidden;
+  display: block;
 }
-
 
 /* ========================================
    RECIPE NAMES
    ======================================== */
 
 .recipe-index-list a {
+  position: absolute;
+
   display: block;
 
   margin: 0;
@@ -59,18 +81,15 @@
 
   color: #111 !important;
 
-  font-family:
-    "Times New Roman",
-    Times,
-    serif;
+  font-family: "Times New Roman", Times, serif;
 
-  font-size: clamp(4rem, 7vw, 8.5rem);
+  font-size: clamp(4.5rem, 7vw, 8.5rem);
   font-weight: 400;
 
   line-height: 0.82;
-  letter-spacing: -0.045em;
+  letter-spacing: -0.05em;
 
-  text-align: center;
+  white-space: nowrap;
 
   text-decoration: none !important;
 
@@ -80,62 +99,55 @@
     letter-spacing 0.6s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-
 /* ========================================
-   INDIVIDUAL POSITIONING
-   controlled chaos
+   INDIVIDUAL RECIPES
    ======================================== */
 
+/* FRITTATA */
+
 .recipe-index-list a:nth-child(1) {
-  transform: translateX(-18%);
+  top: 22%;
+  left: 50%;
+
+  transform: translateX(-50%);
 }
 
+/* CHICKPEA CRACKERS */
 
 .recipe-index-list a:nth-child(2) {
-  transform: translateX(13%);
+  top: 43%;
+  left: 15%;
 }
 
+/* BEETROOT SALAD */
 
 .recipe-index-list a:nth-child(3) {
-  transform: translateX(-8%);
+  top: 65%;
+  right: 12%;
 }
-
 
 /* ========================================
    HOVER
    ======================================== */
 
 @media (hover: hover) and (pointer: fine) {
-
   .recipe-index-list a:hover {
     opacity: 0.4;
-
     letter-spacing: -0.015em;
   }
 
-
   .recipe-index-list a:nth-child(1):hover {
-    transform:
-      translateX(-18%)
-      translateY(-5px);
+    transform: translateX(-50%) translateY(-6px);
   }
-
 
   .recipe-index-list a:nth-child(2):hover {
-    transform:
-      translateX(13%)
-      translateY(-5px);
+    transform: translateY(-6px);
   }
-
 
   .recipe-index-list a:nth-child(3):hover {
-    transform:
-      translateX(-8%)
-      translateY(-5px);
+    transform: translateY(-6px);
   }
-
 }
-
 
 /* ========================================
    BACK
@@ -151,10 +163,7 @@
 
   color: #111 !important;
 
-  font-family:
-    "Times New Roman",
-    Times,
-    serif;
+  font-family: "Times New Roman", Times, serif;
 
   font-size: 25px;
 
@@ -169,24 +178,20 @@
     transform 0.4s ease;
 }
 
-
 .recipe-index-back:hover {
   opacity: 1;
 
   transform: translateX(-4px);
 }
 
-
 /* ========================================
    MOBILE
    ======================================== */
 
 @media (max-width: 768px) {
-
   .recipe-index {
-    height: calc(100svh - 50px);
+    top: 50px;
   }
-
 
   .recipe-index-list {
     gap: clamp(24px, 5vh, 48px);
@@ -194,28 +199,23 @@
     padding: 18px;
   }
 
-
   .recipe-index-list a {
     font-size: clamp(2.8rem, 13vw, 5rem);
 
     line-height: 0.88;
   }
 
-
   .recipe-index-list a:nth-child(1) {
     transform: translateX(-8%);
   }
-
 
   .recipe-index-list a:nth-child(2) {
     transform: translateX(5%);
   }
 
-
   .recipe-index-list a:nth-child(3) {
     transform: translateX(-4%);
   }
-
 
   .recipe-index-back {
     left: 18px;
@@ -223,38 +223,30 @@
 
     font-size: 22px;
   }
-
 }
-
 
 /* ========================================
    VERY SMALL PHONE
    ======================================== */
 
 @media (max-width: 420px) {
-
   .recipe-index-list a {
     font-size: clamp(2.4rem, 12vw, 4rem);
   }
-
 
   .recipe-index-back {
     left: 14px;
     bottom: 16px;
   }
-
 }
-
 
 /* ========================================
    REDUCED MOTION
    ======================================== */
 
 @media (prefers-reduced-motion: reduce) {
-
   .recipe-index-list a,
   .recipe-index-back {
     transition: none;
   }
-
 }
