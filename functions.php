@@ -118,6 +118,16 @@ wp_enqueue_style(
 );
 
 
+// One-screen recipe
+$recipe_sheet_css_path = get_theme_file_path('/assets/css/pages/recipe-sheet.css');
+
+wp_enqueue_style(
+    'nienke-recipe-sheet',
+    get_theme_file_uri('/assets/css/pages/recipe-sheet.css'),
+    array('nienke-base'),
+    file_exists($recipe_sheet_css_path) ? filemtime($recipe_sheet_css_path) : '1.0.0'
+);
+
     /* ========================================
        JAVASCRIPT
        ======================================== */
