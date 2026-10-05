@@ -1044,39 +1044,243 @@ html:has(.nienke-home) .bunny-ear:last-child {
   }
 }
 
-/* ========================================
-   BUNNY — RIDICULOUS DEBUG TEST
-   ======================================== */
+/* ==========================================================
+   NIENKE BUNNY — SIGNATURE JUMP
+   ========================================================== */
 
-@keyframes bunnyRidiculousTest {
+@keyframes nienkeBunnyJump {
+
+  /* resting */
   0% {
-    transform: translateY(0) scale(1);
+    transform:
+      translateY(0)
+      rotate(0)
+      scaleX(1)
+      scaleY(1);
   }
 
+  /* notices something... */
+  10% {
+    transform:
+      translateY(0)
+      rotate(-3deg)
+      scale(1);
+  }
+
+  /* anticipation */
+  18% {
+    transform:
+      translateY(3px)
+      rotate(2deg)
+      scaleX(1.12)
+      scaleY(0.86);
+  }
+
+  /* BIG SQUASH */
   25% {
-    transform: translateY(100px) scale(2);
+    transform:
+      translateY(5px)
+      rotate(0)
+      scaleX(1.22)
+      scaleY(0.72);
   }
 
-  50% {
-    transform: translateY(-100px) scale(0.5) rotate(30deg);
+  /* takeoff */
+  34% {
+    transform:
+      translateY(-18px)
+      rotate(-3deg)
+      scaleX(0.90)
+      scaleY(1.14);
   }
 
-  75% {
-    transform: translateY(60px) scale(1.8) rotate(-30deg);
+  /* flying */
+  45% {
+    transform:
+      translateY(-39px)
+      rotate(4deg)
+      scaleX(0.96)
+      scaleY(1.06);
   }
 
+  /* apex */
+  53% {
+    transform:
+      translateY(-43px)
+      rotate(2deg)
+      scale(1);
+  }
+
+  /* tiny hang in the air */
+  58% {
+    transform:
+      translateY(-42px)
+      rotate(0)
+      scale(1);
+  }
+
+  /* falling */
+  69% {
+    transform:
+      translateY(-22px)
+      rotate(-2deg)
+      scaleX(0.94)
+      scaleY(1.09);
+  }
+
+  /* THUMP */
+  78% {
+    transform:
+      translateY(5px)
+      rotate(0)
+      scaleX(1.24)
+      scaleY(0.72);
+  }
+
+  /* rebound */
+  86% {
+    transform:
+      translateY(-5px)
+      scaleX(0.96)
+      scaleY(1.06);
+  }
+
+  /* tiny second landing */
+  93% {
+    transform:
+      translateY(1px)
+      scaleX(1.04)
+      scaleY(0.97);
+  }
+
+  /* composure restored */
   100% {
-    transform: translateY(0) scale(1);
+    transform:
+      translateY(0)
+      rotate(0)
+      scaleX(1)
+      scaleY(1);
   }
 }
 
+
+/* LEFT EAR */
+
+@keyframes nienkeEarLeft {
+
+  0%,
+  20%,
+  100% {
+    transform: rotate(0);
+  }
+
+  35% {
+    transform:
+      translateY(2px)
+      rotate(10deg);
+  }
+
+  53% {
+    transform:
+      translateY(-2px)
+      rotate(-8deg);
+  }
+
+  70% {
+    transform:
+      translateY(1px)
+      rotate(7deg);
+  }
+
+  79% {
+    transform:
+      translateY(3px)
+      rotate(12deg);
+  }
+
+  90% {
+    transform:
+      rotate(-3deg);
+  }
+}
+
+
+/* RIGHT EAR */
+
+@keyframes nienkeEarRight {
+
+  0%,
+  20%,
+  100% {
+    transform: rotate(0);
+  }
+
+  35% {
+    transform:
+      translateY(2px)
+      rotate(-10deg);
+  }
+
+  53% {
+    transform:
+      translateY(-2px)
+      rotate(8deg);
+  }
+
+  70% {
+    transform:
+      translateY(1px)
+      rotate(-7deg);
+  }
+
+  79% {
+    transform:
+      translateY(3px)
+      rotate(-12deg);
+  }
+
+  90% {
+    transform:
+      rotate(3deg);
+  }
+}
+
+
+/* ----------------------------------------------------------
+   PLAY ON HOMEPAGE
+   ---------------------------------------------------------- */
+
 html:has(.nienke-home) .nienke-bunny {
-  outline: 3px solid red !important;
+  transform-origin: center bottom;
 
   animation:
-    bunnyRidiculousTest
-    4s
-    linear
-    infinite
-    !important;
+    nienkeBunnyJump
+    1.65s
+    cubic-bezier(0.34, 1.18, 0.64, 1)
+    0.35s
+    both;
+}
+
+
+html:has(.nienke-home) .bunny-ear:first-child {
+  transform-origin: center bottom;
+
+  animation:
+    nienkeEarLeft
+    1.65s
+    ease
+    0.35s
+    both;
+}
+
+
+html:has(.nienke-home) .bunny-ear:last-child {
+  transform-origin: center bottom;
+
+  animation:
+    nienkeEarRight
+    1.65s
+    ease
+    0.35s
+    both;
 }
