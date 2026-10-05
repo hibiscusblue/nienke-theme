@@ -730,3 +730,353 @@ header.wp-block-template-part {
     transition: none;
   }
 }
+
+/* ==========================================================
+   NIENKE BUNNY — CHARACTER ENTRANCE
+   ==========================================================
+
+   REST
+     ↓
+   anticipation
+     ↓
+   squash
+     ↓
+   takeoff / stretch
+     ↓
+   apex
+     ↓
+   fall
+     ↓
+   landing squash
+     ↓
+   recovery
+
+   Only runs on the homepage.
+
+   ========================================================== */
+
+
+@keyframes nienkeBunnyJump {
+
+  /* ----------------------------------------
+     0% — REST
+     ---------------------------------------- */
+
+  0% {
+    transform:
+      translateY(0)
+      scaleX(1)
+      scaleY(1);
+  }
+
+
+  /* ----------------------------------------
+     12% — ANTICIPATION
+
+     The bunny lowers very slightly before
+     committing to the jump.
+     ---------------------------------------- */
+
+  12% {
+    transform:
+      translateY(2px)
+      scaleX(1.03)
+      scaleY(0.97);
+  }
+
+
+  /* ----------------------------------------
+     22% — SQUASH
+
+     Stored energy.
+     Wider + shorter.
+     ---------------------------------------- */
+
+  22% {
+    transform:
+      translateY(4px)
+      scaleX(1.18)
+      scaleY(0.78);
+  }
+
+
+  /* ----------------------------------------
+     34% — TAKEOFF
+
+     Narrower + taller.
+     ---------------------------------------- */
+
+  34% {
+    transform:
+      translateY(-18px)
+      scaleX(0.91)
+      scaleY(1.12);
+  }
+
+
+  /* ----------------------------------------
+     48% — APEX
+
+     Highest point.
+     Almost normal proportions again.
+     ---------------------------------------- */
+
+  48% {
+    transform:
+      translateY(-34px)
+      scaleX(0.96)
+      scaleY(1.05);
+  }
+
+
+  /* ----------------------------------------
+     58% — HANG
+
+     A tiny moment of suspended weightlessness.
+     ---------------------------------------- */
+
+  58% {
+    transform:
+      translateY(-36px)
+      scaleX(1)
+      scaleY(1);
+  }
+
+
+  /* ----------------------------------------
+     70% — FALL
+
+     Slight vertical stretch as gravity wins.
+     ---------------------------------------- */
+
+  70% {
+    transform:
+      translateY(-17px)
+      scaleX(0.94)
+      scaleY(1.08);
+  }
+
+
+  /* ----------------------------------------
+     80% — THUMP
+
+     Strong landing squash.
+     ---------------------------------------- */
+
+  80% {
+    transform:
+      translateY(4px)
+      scaleX(1.20)
+      scaleY(0.76);
+  }
+
+
+  /* ----------------------------------------
+     88% — REBOUND
+     ---------------------------------------- */
+
+  88% {
+    transform:
+      translateY(-3px)
+      scaleX(0.97)
+      scaleY(1.05);
+  }
+
+
+  /* ----------------------------------------
+     94% — SECOND TINY SETTLE
+     ---------------------------------------- */
+
+  94% {
+    transform:
+      translateY(1px)
+      scaleX(1.02)
+      scaleY(0.98);
+  }
+
+
+  /* ----------------------------------------
+     100% — REST
+     ---------------------------------------- */
+
+  100% {
+    transform:
+      translateY(0)
+      scaleX(1)
+      scaleY(1);
+  }
+}
+
+
+/* ==========================================================
+   HOMEPAGE — PLAY CHARACTER ENTRANCE
+   ========================================================== */
+
+html:has(.nienke-home) .nienke-bunny {
+  transform-origin: center bottom;
+
+  animation:
+    nienkeBunnyJump
+    1250ms
+    cubic-bezier(0.34, 1.25, 0.64, 1)
+    180ms
+    both;
+}
+
+
+html:has(.nienke-home) .bunny-ear:first-child {
+  transform-origin: center bottom;
+
+  animation:
+    nienkeBunnyEarLeft
+    1250ms
+    ease
+    180ms
+    both;
+}
+
+
+html:has(.nienke-home) .bunny-ear:last-child {
+  transform-origin: center bottom;
+
+  animation:
+    nienkeBunnyEarRight
+    1250ms
+    ease
+    180ms
+    both;
+}
+
+
+
+/* ==========================================================
+   BUNNY EARS — SECONDARY MOTION
+   ==========================================================
+
+   The body jumps first.
+   The ears react slightly afterwards.
+
+   This is "follow-through".
+
+   ========================================================== */
+
+
+@keyframes nienkeBunnyEarLeft {
+
+  0%,
+  18%,
+  100% {
+    transform:
+      translateY(0)
+      rotate(0);
+  }
+
+  30% {
+    transform:
+      translateY(1px)
+      rotate(8deg);
+  }
+
+  48% {
+    transform:
+      translateY(-2px)
+      rotate(-7deg);
+  }
+
+  70% {
+    transform:
+      translateY(1px)
+      rotate(6deg);
+  }
+
+  80% {
+    transform:
+      translateY(2px)
+      rotate(10deg);
+  }
+
+  90% {
+    transform:
+      translateY(-1px)
+      rotate(-3deg);
+  }
+}
+
+
+@keyframes nienkeBunnyEarRight {
+
+  0%,
+  18%,
+  100% {
+    transform:
+      translateY(0)
+      rotate(0);
+  }
+
+  30% {
+    transform:
+      translateY(1px)
+      rotate(-8deg);
+  }
+
+  48% {
+    transform:
+      translateY(-2px)
+      rotate(7deg);
+  }
+
+  70% {
+    transform:
+      translateY(1px)
+      rotate(-6deg);
+  }
+
+  80% {
+    transform:
+      translateY(2px)
+      rotate(-10deg);
+  }
+
+  90% {
+    transform:
+      translateY(-1px)
+      rotate(3deg);
+  }
+}
+
+/* ========================================
+   BUNNY — RIDICULOUS DEBUG TEST
+   ======================================== */
+
+@keyframes bunnyRidiculousTest {
+  0% {
+    transform: translateY(0) scale(1);
+  }
+
+  25% {
+    transform: translateY(100px) scale(2);
+  }
+
+  50% {
+    transform: translateY(-100px) scale(0.5) rotate(30deg);
+  }
+
+  75% {
+    transform: translateY(60px) scale(1.8) rotate(-30deg);
+  }
+
+  100% {
+    transform: translateY(0) scale(1);
+  }
+}
+
+html:has(.nienke-home) .nienke-bunny {
+  outline: 3px solid red !important;
+
+  animation:
+    bunnyRidiculousTest
+    4s
+    linear
+    infinite
+    !important;
+}
