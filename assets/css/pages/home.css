@@ -3,7 +3,6 @@
    Editorial controlled-chaos mosaic
    ========================================================== */
 
-
 /* ==========================================================
    01. PAGE
    ========================================================== */
@@ -18,7 +17,6 @@
   color: #111;
   background: #f4f0e7;
 }
-
 
 /* ==========================================================
    02. EDITORIAL CANVAS
@@ -37,7 +35,6 @@
   background: #f4f0e7;
 }
 
-
 /* ==========================================================
    03. CATEGORY WORDS
    ========================================================== */
@@ -53,10 +50,7 @@
 
   color: #111;
 
-  font-family:
-    "Times New Roman",
-    Times,
-    serif;
+  font-family: "Times New Roman", Times, serif;
 
   font-size: clamp(5rem, 7.4vw, 9rem);
   font-weight: 400;
@@ -74,7 +68,6 @@
     transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-
 .mosaic-word:hover,
 .mosaic-word:focus-visible {
   color: #111;
@@ -88,11 +81,9 @@
   transform: translateX(0.035em);
 }
 
-
 /* ==========================================================
    04. DESKTOP TYPOGRAPHY POSITION
    ========================================================== */
-
 
 /* CUISINE — upper left */
 
@@ -101,22 +92,19 @@
   left: 2%;
 }
 
-
 /* INSIGHTS — upper right */
 
 .mosaic-notes {
-  top: 40%;
-  right: 14%;
+  top: 50%;
+  right: 20%;
 }
-
 
 /* PASSIONS — lower left / centre */
 
 .mosaic-obsessions {
-  left: 25%;
+  left: 28%;
   bottom: 5%;
 }
-
 
 /* ==========================================================
    05. IMAGE SYSTEM
@@ -131,7 +119,6 @@
   margin: 0;
   padding: 0;
 }
-
 
 .mosaic-image img,
 .mosaic-image-02 img {
@@ -151,7 +138,6 @@
     transform 0.9s cubic-bezier(0.16, 1, 0.3, 1),
     opacity 0.4s ease;
 }
-
 
 /* ==========================================================
    06. FRITTATA
@@ -173,14 +159,9 @@
   top: 10%;
 }
 
-
 .mosaic-image-04:hover img {
-  transform:
-    translateY(-7px)
-    rotate(-0.3deg)
-    scale(1.012);
+  transform: translateY(-7px) rotate(-0.3deg) scale(1.012);
 }
-
 
 /* ==========================================================
    07. QUIET
@@ -196,19 +177,15 @@
 .mosaic-image-05 {
   z-index: 15;
 
-  width: 43%;
+  width: 47%;
 
-  right: 2%;
-  top: 0%;
+  right: 6%;
+  top: 8%;
 }
-
 
 .mosaic-image-05:hover img {
-  transform:
-    translateY(-6px)
-    scale(1.008);
+  transform: translateY(-6px) scale(1.008);
 }
-
 
 /* ==========================================================
    08. SECOND LIFE
@@ -230,14 +207,9 @@
   bottom: 2.5%;
 }
 
-
 .mosaic-image-03:hover img {
-  transform:
-    translateY(-7px)
-    rotate(0.25deg)
-    scale(1.008);
+  transform: translateY(-7px) rotate(0.25deg) scale(1.008);
 }
-
 
 /* ==========================================================
    09. RASPBERRY COOKIE
@@ -262,14 +234,9 @@
   text-decoration: none;
 }
 
-
 .mosaic-image-02:hover img {
-  transform:
-    translateY(-9px)
-    rotate(1deg)
-    scale(1.018);
+  transform: translateY(-9px) rotate(1deg) scale(1.018);
 }
-
 
 /* ==========================================================
    10. CAT
@@ -291,14 +258,9 @@
   bottom: 0%;
 }
 
-
 .mosaic-image-01:hover img {
-  transform:
-    translateY(-8px)
-    rotate(-0.35deg)
-    scale(1.01);
+  transform: translateY(-8px) rotate(-0.35deg) scale(1.01);
 }
-
 
 /* ==========================================================
    11. LARGE DESKTOP
@@ -306,11 +268,9 @@
    ========================================================== */
 
 @media (min-width: 1600px) {
-
   .nienke-mosaic {
     min-height: 0;
   }
-
 
   /* TYPE */
 
@@ -318,24 +278,20 @@
     font-size: clamp(6rem, 7.2vw, 9rem);
   }
 
-
   .mosaic-cuisine {
     top: 10%;
     left: 5.5%;
   }
-
 
   .mosaic-notes {
     top: 21%;
     left: 46%;
   }
 
-
   .mosaic-obsessions {
     left: 24%;
     bottom: 2%;
   }
-
 
   /* IMAGES */
 
@@ -345,13 +301,11 @@
     top: 10%;
   }
 
-
   .mosaic-image-05 {
     width: 25%;
     right: 8%;
     top: 4%;
   }
-
 
   .mosaic-image-03 {
     width: 28%;
@@ -359,13 +313,11 @@
     bottom: -16%;
   }
 
-
   .mosaic-image-02 {
     width: 18%;
     left: 55%;
     bottom: 3%;
   }
-
 
   .mosaic-image-01 {
     width: 27%;
@@ -374,23 +326,19 @@
   }
 }
 
-
 /* ==========================================================
    12. SMALL DESKTOP / TABLET LANDSCAPE
    769px — 1199px
    ========================================================== */
 
 @media (min-width: 769px) and (max-width: 1199px) {
-
   .nienke-mosaic {
     min-height: 680px;
   }
 
-
   .mosaic-word {
     font-size: clamp(4rem, 8vw, 6.5rem);
   }
-
 
   /* TYPE */
 
@@ -399,18 +347,15 @@
     left: 4%;
   }
 
-
   .mosaic-notes {
     top: 18%;
     left: 45%;
   }
 
-
   .mosaic-obsessions {
     left: 21%;
     bottom: 5%;
   }
-
 
   /* IMAGES */
 
@@ -420,13 +365,11 @@
     top: 12%;
   }
 
-
   .mosaic-image-05 {
     width: 31%;
     right: 2%;
     top: 5%;
   }
-
 
   .mosaic-image-03 {
     width: 31%;
@@ -434,13 +377,11 @@
     bottom: -10%;
   }
 
-
   .mosaic-image-02 {
     width: 22%;
     left: 53%;
     bottom: 1%;
   }
-
 
   .mosaic-image-01 {
     width: 33%;
@@ -448,7 +389,6 @@
     bottom: -10%;
   }
 }
-
 
 /* ==========================================================
    13. MOBILE
@@ -459,12 +399,10 @@
    ========================================================== */
 
 @media (max-width: 768px) {
-
   .nienke-mosaic {
     height: calc(100svh - 50px);
     min-height: 650px;
   }
-
 
   /* TYPE */
 
@@ -475,12 +413,10 @@
     letter-spacing: -0.045em;
   }
 
-
   .mosaic-cuisine {
     top: 20%;
     left: 4%;
   }
-
 
   .mosaic-notes {
     top: 10%;
@@ -488,12 +424,10 @@
     right: 5%;
   }
 
-
   .mosaic-obsessions {
     left: 5%;
     bottom: 11%;
   }
-
 
   /* FRITTATA */
 
@@ -504,7 +438,6 @@
     top: 5%;
   }
 
-
   /* QUIET */
 
   .mosaic-image-05 {
@@ -513,7 +446,6 @@
     right: -8%;
     top: 17%;
   }
-
 
   /* SECOND LIFE */
 
@@ -524,7 +456,6 @@
     bottom: -4%;
   }
 
-
   /* COOKIE */
 
   .mosaic-image-02 {
@@ -533,7 +464,6 @@
     left: 42%;
     bottom: -1%;
   }
-
 
   /* CAT */
 
@@ -545,40 +475,33 @@
   }
 }
 
-
 /* ==========================================================
    14. SMALL MOBILE
    ========================================================== */
 
 @media (max-width: 420px) {
-
   .nienke-mosaic {
     min-height: 610px;
   }
 
-
   .mosaic-word {
     font-size: clamp(2.3rem, 11.5vw, 3.4rem);
   }
-
 
   .mosaic-cuisine {
     top: 20%;
     left: 4%;
   }
 
-
   .mosaic-notes {
     top: 10%;
     right: 4%;
   }
 
-
   .mosaic-obsessions {
     left: 4%;
     bottom: 12%;
   }
-
 
   .mosaic-image-04 {
     width: 51%;
@@ -587,14 +510,12 @@
     top: 5%;
   }
 
-
   .mosaic-image-05 {
     width: 56%;
 
     right: -10%;
     top: 17%;
   }
-
 
   .mosaic-image-03 {
     width: 50%;
@@ -603,14 +524,12 @@
     bottom: -4%;
   }
 
-
   .mosaic-image-02 {
     width: 36%;
 
     left: 41%;
     bottom: -1%;
   }
-
 
   .mosaic-image-01 {
     width: 51%;
@@ -620,68 +539,160 @@
   }
 }
 
-
 /* ==========================================================
    15. SHORT LAPTOP SCREENS
    ========================================================== */
 
 @media (min-width: 769px) and (max-height: 760px) {
-
   .nienke-mosaic {
     min-height: 620px;
   }
-
 
   .mosaic-word {
     font-size: clamp(4.5rem, 7vw, 7.5rem);
   }
 
-
   .mosaic-cuisine {
     top: 14%;
   }
-
 
   .mosaic-notes {
     top: 18%;
   }
 
-
   .mosaic-image-04 {
     width: 27%;
   }
-
 
   .mosaic-image-05 {
     width: 25%;
   }
 
-
   .mosaic-image-03 {
     width: 26%;
   }
 
-
   .mosaic-image-02 {
     width: 17%;
   }
-
 
   .mosaic-image-01 {
     width: 27%;
   }
 }
 
-
 /* ==========================================================
    16. ACCESSIBILITY
    ========================================================== */
 
 @media (prefers-reduced-motion: reduce) {
-
   .mosaic-word,
   .mosaic-image img,
   .mosaic-image-02 img {
     transition: none;
   }
+}
+
+/* ==========================================================
+   HOME — FULL-SCREEN BEHAVIOUR
+   ========================================================== */
+
+/*
+   The homepage is a fixed visual composition,
+   so the document itself should not scroll.
+*/
+
+html:has(.nienke-home),
+html:has(.nienke-home) body {
+  width: 100%;
+  height: 100%;
+  max-width: 100%;
+
+  margin: 0 !important;
+  padding: 0 !important;
+
+  overflow: hidden !important;
+}
+
+/* Remove WordPress outer spacing on homepage */
+
+html:has(.nienke-home) body > .wp-site-blocks {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* ==========================================================
+   HOME — HIDE NVZ MARK
+   ========================================================== */
+
+/*
+   NvZ is useful as a home button on internal pages,
+   but unnecessary on the homepage itself.
+*/
+
+html:has(.nienke-home) .nienke-home-mark {
+  display: none !important;
+}
+
+/* ==========================================================
+   HOME — MENU POSITION
+   ========================================================== */
+
+/*
+   On the homepage only, move the bunny/menu
+   into the open space on the right.
+*/
+
+html:has(.nienke-home) .nienke-menu {
+  left: 86%;
+}
+
+/* ========================================
+   HOME — NAVIGATION PANEL
+   ======================================== */
+
+/*
+   The normal menu panel is centred around the bunny.
+   On the homepage we keep the same relationship,
+   so the menu opens directly beneath it.
+*/
+
+html:has(.nienke-home) .nienke-nav-panel {
+  left: 50%;
+}
+
+/* ========================================
+   HOME — MOBILE
+   ======================================== */
+
+/*
+   On small screens the bunny returns to the centre.
+   There isn't enough horizontal room for the
+   desktop composition.
+*/
+
+@media (max-width: 768px) {
+  html:has(.nienke-home) .nienke-menu {
+    left: 50%;
+  }
+}
+
+/* ==========================================================
+   HOME — NARROWER MENU VEIL
+   ========================================================== */
+
+html:has(.nienke-home) .nienke-main-nav::before {
+  left: 35px;
+  right: -35px;
+
+  background: linear-gradient(
+    90deg,
+    rgba(244, 240, 231, 0) 0%,
+    rgba(244, 240, 231, 0.78) 14%,
+    rgba(244, 240, 231, 0.97) 30%,
+    rgba(244, 240, 231, 0.99) 50%,
+    rgba(244, 240, 231, 0.97) 70%,
+    rgba(244, 240, 231, 0.78) 86%,
+    rgba(244, 240, 231, 0) 100%
+  );
 }

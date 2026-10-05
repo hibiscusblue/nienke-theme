@@ -273,9 +273,13 @@ header.wp-block-template-part {
 }
 
 /* OPEN */
-
 .bunny-open {
   opacity: 0;
+
+  font-size: 19px;
+  font-weight: 400;
+
+  transform: translate(-50%, -43%) !important;
 }
 
 /* ==========================================================
