@@ -1,22 +1,19 @@
 /* ==========================================================
-   NIENKE — ONE-SCREEN RECIPE
+   NIENKE — RECIPE SHEET
+   Desktop: one-screen editorial composition
+   Mobile: flowing two-column editorial composition
    ========================================================== */
 
 
 /* ========================================
-   LOCK RECIPE VIEWPORT
+   GLOBAL RECIPE RESET
    ======================================== */
 
 html:has(.recipe-sheet),
 html:has(.recipe-sheet) body {
   width: 100%;
-  height: 100%;
-  max-width: 100%;
-
   margin: 0 !important;
   padding: 0 !important;
-
-  overflow: hidden !important;
 }
 
 html:has(.recipe-sheet) body > .wp-site-blocks {
@@ -24,9 +21,16 @@ html:has(.recipe-sheet) body > .wp-site-blocks {
   padding: 0 !important;
 }
 
+.recipe-sheet,
+.recipe-sheet *,
+.recipe-sheet *::before,
+.recipe-sheet *::after {
+  box-sizing: border-box;
+}
+
 
 /* ========================================
-   RECIPE CANVAS
+   DESKTOP CANVAS
    ======================================== */
 
 .recipe-sheet {
@@ -37,20 +41,12 @@ html:has(.recipe-sheet) body > .wp-site-blocks {
   bottom: 0;
   left: 0;
 
-  box-sizing: border-box;
-
   overflow: hidden;
 
   background: #f4f0e7;
   color: #111;
 
   font-family: "Times New Roman", Times, serif;
-}
-
-.recipe-sheet *,
-.recipe-sheet *::before,
-.recipe-sheet *::after {
-  box-sizing: border-box;
 }
 
 
@@ -61,11 +57,10 @@ html:has(.recipe-sheet) body > .wp-site-blocks {
 .recipe-sheet-title {
   position: absolute;
 
-  top: 8%;
+  top: 10%;
   left: 7%;
 
   margin: 0;
-  padding: 0;
 }
 
 .recipe-sheet-title h1 {
@@ -73,29 +68,16 @@ html:has(.recipe-sheet) body > .wp-site-blocks {
 
   font-family: "Times New Roman", Times, serif;
 
-  font-size: clamp(4.2rem, 6.2vw, 7rem);
+  font-size: clamp(4.5rem, 6.3vw, 7rem);
   font-weight: 400;
 
-  line-height: 0.8;
+  line-height: 0.78;
   letter-spacing: -0.055em;
-}
-
-.recipe-sheet-title p {
-  margin: 16px 0 0;
-
-  font-size: clamp(12px, 0.9vw, 15px);
-  font-weight: 400;
-
-  line-height: 1;
-
-  letter-spacing: 0.04em;
-
-  opacity: 0.55;
 }
 
 
 /* ========================================
-   SECTION TITLES
+   SECTION LABELS
    ======================================== */
 
 .recipe-sheet h2 {
@@ -107,10 +89,36 @@ html:has(.recipe-sheet) body > .wp-site-blocks {
   font-weight: 400;
 
   line-height: 1;
+  letter-spacing: 0.24em;
 
-  letter-spacing: 0.2em;
+  opacity: 0.46;
+}
 
-  opacity: 0.48;
+
+/* ========================================
+   DESKTOP RECIPE COMPOSITION
+
+   ingredients | image | method
+   ======================================== */
+
+.recipe-sheet-body {
+  position: absolute;
+
+  top: 31%;
+  left: 7%;
+
+  display: grid;
+
+  grid-template-columns:
+    minmax(320px, 390px)
+    minmax(250px, 310px)
+    minmax(250px, 290px);
+
+  column-gap: clamp(24px, 2.2vw, 42px);
+
+  align-items: start;
+
+  width: min(1080px, 86vw);
 }
 
 
@@ -119,35 +127,61 @@ html:has(.recipe-sheet) body > .wp-site-blocks {
    ======================================== */
 
 .recipe-sheet-ingredients {
-  position: absolute;
-
-  left: 10%;
-  top: 37%;
-
-  width: 34%;
+  min-width: 0;
 }
 
 .recipe-ingredients-list {
   display: grid;
 
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns:
+    minmax(140px, 1fr)
+    minmax(160px, 1.1fr);
 
-  column-gap: 50px;
-  row-gap: 18px;
+  column-gap: 28px;
 }
 
 .recipe-ingredients-list p {
   margin: 0;
 
-  font-size: clamp(13px, 1vw, 17px);
+  font-size: clamp(13px, 0.9vw, 16px);
 
-  line-height: 1.48;
-
-  letter-spacing: -0.01em;
+  line-height: 1.58;
+  letter-spacing: -0.012em;
 }
 
-.recipe-ingredients-list p:last-child {
-  grid-column: 2;
+
+/* ========================================
+   FRITTATA IMAGE — DESKTOP
+   ======================================== */
+
+.frittata-image {
+  position: relative;
+
+  align-self: start;
+  justify-self: center;
+
+  width: 112%;
+
+  margin: 34px 0 0;
+
+  transform:
+    translateX(-10px)
+    rotate(-1.5deg);
+
+  transform-origin: center;
+
+  z-index: 2;
+
+  pointer-events: none;
+}
+
+.frittata-image img {
+  display: block;
+
+  width: 100%;
+  height: auto;
+
+  object-fit: contain;
 }
 
 
@@ -156,65 +190,56 @@ html:has(.recipe-sheet) body > .wp-site-blocks {
    ======================================== */
 
 .recipe-sheet-method {
-  position: absolute;
-
-  top: 21%;
-  right: 10%;
-
-  width: 40%;
-}
-
-.recipe-sheet-method > h2 {
-  margin-bottom: 28px;
+  min-width: 0;
 }
 
 .recipe-step {
   display: grid;
 
-  grid-template-columns: 32px 100px 1fr;
+  grid-template-columns: 27px minmax(0, 1fr);
+
+  column-gap: 5px;
 
   align-items: start;
 
-  margin: 0 0 20px;
+  margin: 0 0 17px;
 }
 
 .recipe-step-number {
-  padding-top: 2px;
+  padding-top: 3px;
 
   font-family: Arial, Helvetica, sans-serif;
 
-  font-size: 9px;
+  font-size: 8px;
 
   line-height: 1;
-
   letter-spacing: 0.1em;
 
-  opacity: 0.32;
-}
-
-.recipe-step > div {
-  display: contents;
+  opacity: 0.27;
 }
 
 .recipe-step h3 {
-  margin: 0;
+  margin: 0 0 4px;
 
-  font-size: clamp(15px, 1.15vw, 19px);
+  font-family: "Times New Roman", Times, serif;
+
+  font-size: clamp(14px, 1vw, 17px);
   font-weight: 400;
 
   line-height: 1;
-
   letter-spacing: -0.02em;
 }
 
 .recipe-step p {
-  margin: -2px 0 0;
+  margin: 0;
 
-  font-size: clamp(12px, 0.9vw, 15px);
+  max-width: 220px;
 
-  line-height: 1.3;
+  font-size: clamp(11px, 0.78vw, 13px);
 
-  opacity: 0.68;
+  line-height: 1.32;
+
+  opacity: 0.63;
 }
 
 
@@ -238,7 +263,7 @@ html:has(.recipe-sheet) body > .wp-site-blocks {
 
   text-decoration: none !important;
 
-  opacity: 0.5;
+  opacity: 0.45;
 
   transition:
     opacity 0.3s ease,
@@ -253,77 +278,163 @@ html:has(.recipe-sheet) body > .wp-site-blocks {
 
 
 /* ========================================
-   SHORTER DESKTOP SCREENS
+   SHORT DESKTOP SCREENS
    ======================================== */
 
 @media (max-height: 760px) and (min-width: 769px) {
 
   .recipe-sheet-title {
-    top: 6%;
+    top: 7%;
   }
 
-  .recipe-sheet-title h1 {
-    font-size: clamp(4rem, 6vw, 6.5rem);
-  }
-
-  .recipe-sheet-ingredients {
-    top: 34%;
-  }
-
-  .recipe-sheet-method {
-    top: 13%;
+  .recipe-sheet-body {
+    top: 27%;
   }
 
   .recipe-step {
-    margin-bottom: 14px;
+    margin-bottom: 12px;
   }
 
+  .frittata-image {
+    margin-top: 20px;
+  }
 }
 
 
-/* ========================================
-   MOBILE
-   ======================================== */
+/* ==========================================================
+   MOBILE — EDITORIAL RECIPE
+   ========================================================== */
 
 @media (max-width: 768px) {
 
-  .recipe-sheet {
-    top: 50px;
+
+  /* ========================================
+     PAGE
+     ======================================== */
+
+  html:has(.recipe-sheet),
+  html:has(.recipe-sheet) body {
+    height: auto;
+    min-height: 100%;
+
+    overflow-x: hidden !important;
+    overflow-y: auto !important;
   }
 
+  .recipe-sheet {
+    position: relative;
+
+    top: auto;
+    right: auto;
+    bottom: auto;
+    left: auto;
+
+    width: 100%;
+    min-height: 100svh;
+
+    margin: 0;
+
+    /*
+       Header already occupies its own space.
+       This is the breathing room beneath it.
+    */
+
+    padding:
+      46px
+      6vw
+      34px;
+
+    overflow: hidden;
+  }
+
+
+  /* ========================================
+     TITLE
+     ======================================== */
+
   .recipe-sheet-title {
-    top: 5%;
-    left: 7%;
+    position: relative;
+
+    top: auto;
+    left: auto;
+
+    width: 100%;
+
+    margin: 0 0 48px;
   }
 
   .recipe-sheet-title h1 {
-    font-size: clamp(3.1rem, 15vw, 5rem);
+    margin: 0;
+
+    font-size: clamp(3.5rem, 16.5vw, 5.4rem);
+
+    line-height: 0.8;
+    letter-spacing: -0.06em;
+
+    white-space: nowrap;
   }
 
-  .recipe-sheet-title p {
-    margin-top: 10px;
 
-    font-size: 10px;
+  /* ========================================
+     MOBILE COMPOSITION
+
+     ingredients | method
+     --------------------
+          large image
+     ======================================== */
+
+  .recipe-sheet-body {
+    position: relative;
+
+    top: auto;
+    left: auto;
+
+    display: grid;
+
+    grid-template-columns:
+      minmax(0, 44%)
+      minmax(0, 56%);
+
+    column-gap: 0;
+
+    align-items: start;
+
+    width: 100%;
+
+    margin: 0;
   }
 
-  .recipe-sheet-ingredients {
-    top: 25%;
-    left: 7%;
 
-    width: 41%;
-  }
-
-  .recipe-sheet-method {
-    top: 25%;
-    right: 5%;
-
-    width: 43%;
-  }
+  /* ========================================
+     MOBILE SECTION LABELS
+     ======================================== */
 
   .recipe-sheet h2 {
-    margin-bottom: 14px;
+    margin: 0 0 24px;
 
-    font-size: 8px;
+    font-size: clamp(8px, 2.45vw, 10px);
+
+    line-height: 1;
+
+    letter-spacing: 0.27em;
+
+    white-space: nowrap;
+
+    opacity: 0.47;
+  }
+
+
+  /* ========================================
+     MOBILE INGREDIENTS
+     ======================================== */
+
+  .recipe-sheet-ingredients {
+    grid-column: 1;
+    grid-row: 1;
+
+    min-width: 0;
+
+    padding-right: 14px;
   }
 
   .recipe-ingredients-list {
@@ -331,46 +442,191 @@ html:has(.recipe-sheet) body > .wp-site-blocks {
   }
 
   .recipe-ingredients-list p {
-    margin-bottom: 10px;
+    margin: 0 0 27px;
 
-    font-size: clamp(9px, 2.6vw, 12px);
+    font-size: clamp(11px, 3.25vw, 15px);
 
-    line-height: 1.35;
+    line-height: 1.48;
+    letter-spacing: -0.015em;
+
+    overflow-wrap: normal;
+  }
+
+
+  /* ========================================
+     MOBILE METHOD
+     ======================================== */
+
+  .recipe-sheet-method {
+    position: relative;
+
+    grid-column: 2;
+    grid-row: 1;
+
+    min-width: 0;
+
+    padding-left: 14px;
+
+    border-left: 1px solid rgba(17, 17, 17, 0.12);
   }
 
   .recipe-step {
-    grid-template-columns: 20px 1fr;
+    display: grid;
 
-    margin-bottom: 12px;
-  }
+    grid-template-columns:
+      20px
+      minmax(0, 1fr);
 
-  .recipe-step > div {
-    display: block;
+    column-gap: 5px;
+
+    align-items: start;
+
+    margin: 0 0 24px;
   }
 
   .recipe-step-number {
+    padding-top: 3px;
+
     font-size: 7px;
+
+    line-height: 1;
+
+    letter-spacing: 0.08em;
+
+    opacity: 0.27;
   }
 
   .recipe-step h3 {
-    font-size: clamp(11px, 3vw, 14px);
+    margin: 0 0 5px;
+
+    font-size: clamp(13px, 3.8vw, 17px);
+
+    line-height: 1;
   }
 
   .recipe-step p {
-    margin-top: 3px;
+    margin: 0;
 
-    font-size: clamp(8px, 2.4vw, 11px);
+    width: 100%;
+    max-width: none;
 
-    line-height: 1.25;
+    font-size: clamp(9.5px, 2.75vw, 12.5px);
+
+    line-height: 1.32;
+
+    overflow-wrap: normal;
+    word-break: normal;
+
+    opacity: 0.62;
   }
+
+
+  /* ========================================
+     MOBILE FRITTATA
+
+     This is deliberately part of the grid.
+     It cannot collide with METHOD.
+     ======================================== */
+
+  .frittata-image {
+    position: relative;
+
+    grid-column: 1 / -1;
+    grid-row: 2;
+
+    align-self: auto;
+    justify-self: center;
+
+    width: min(94vw, 560px);
+
+    margin: 28px 0 0;
+
+    transform: rotate(-1.5deg);
+
+    transform-origin: center;
+
+    z-index: 1;
+
+    pointer-events: none;
+  }
+
+  .frittata-image img {
+    display: block;
+
+    width: 100%;
+    height: auto;
+
+    object-fit: contain;
+  }
+
+
+  /* ========================================
+     MOBILE BACK
+     ======================================== */
 
   .recipe-sheet-back {
-    left: 18px;
-    bottom: 18px;
+    position: relative;
 
-    font-size: 22px;
+    display: inline-block;
+
+    left: auto;
+    bottom: auto;
+
+    margin-top: 8px;
+
+    font-size: 27px;
+
+    line-height: 1;
+
+    opacity: 0.45;
+  }
+}
+
+
+/* ========================================
+   VERY NARROW PHONES
+   ======================================== */
+
+@media (max-width: 390px) {
+
+  .recipe-sheet {
+    padding-right: 5vw;
+    padding-left: 5vw;
   }
 
+  .recipe-sheet-title h1 {
+    font-size: 16vw;
+  }
+
+  .recipe-sheet-body {
+    grid-template-columns:
+      minmax(0, 43%)
+      minmax(0, 57%);
+  }
+
+  .recipe-sheet-ingredients {
+    padding-right: 10px;
+  }
+
+  .recipe-sheet-method {
+    padding-left: 11px;
+  }
+
+  .recipe-step {
+    grid-template-columns:
+      17px
+      minmax(0, 1fr);
+
+    column-gap: 4px;
+  }
+
+  .recipe-ingredients-list p {
+    font-size: clamp(10.5px, 3.2vw, 13px);
+  }
+
+  .recipe-step p {
+    font-size: clamp(9px, 2.65vw, 11px);
+  }
 }
 
 
@@ -383,41 +639,4 @@ html:has(.recipe-sheet) body > .wp-site-blocks {
   .recipe-sheet-back {
     transition: none;
   }
-
-}
-
-/* ========================================
-   FRITTATA — EDITORIAL PHOTO
-   ======================================== */
-
-.frittata-photo {
-  position: absolute;
-
-  top: 26%;
-  left: 35%;
-
-  width: clamp(220px, 18vw, 340px);
-
-  margin: 0;
-  padding: 0;
-
-  z-index: 1;
-
-  pointer-events: none;
-
-  transform: rotate(-2deg);
-
-  transform-origin: center;
-
-  transition:
-    transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.frittata-photo img {
-  display: block;
-
-  width: 100%;
-  height: auto;
-
-  object-fit: contain;
 }
