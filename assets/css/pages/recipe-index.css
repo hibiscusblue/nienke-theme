@@ -184,6 +184,100 @@ html:has(.recipe-index) body {
   transform: translateX(-4px);
 }
 
+/* ==========================================================
+   SWEET — EDITORIAL COMPOSITION
+   ========================================================== */
+
+
+/* AMARETTI */
+
+.recipe-index-sweet
+.recipe-index-list a:nth-child(1) {
+  top: 10%;
+  left: 12%;
+  right: auto;
+
+  transform: none;
+}
+
+
+/* HAZELNUT CACAO */
+
+.recipe-index-sweet
+.recipe-index-list a:nth-child(2) {
+  top: 25%;
+  right: 8%;
+  left: auto;
+
+  transform: none;
+}
+
+
+/* BLUEBERRY */
+
+.recipe-index-sweet
+.recipe-index-list a:nth-child(3) {
+  top: 41%;
+  left: 29%;
+  right: auto;
+
+  transform: none;
+}
+
+
+/* MARZIPAN */
+
+.recipe-index-sweet
+.recipe-index-list a:nth-child(4) {
+  top: 56%;
+  right: 18%;
+  left: auto;
+
+  transform: none;
+}
+
+
+/* APPLE CINNAMON */
+
+.recipe-index-sweet
+.recipe-index-list a:nth-child(5) {
+  top: 70%;
+  left: 8%;
+  right: auto;
+
+  transform: none;
+}
+
+
+
+
+
+/* ========================================
+   SWEET — SLIGHTLY SMALLER TYPE
+
+   There are more recipes here than on
+   the Savoury page.
+   ======================================== */
+
+.recipe-index-sweet
+.recipe-index-list a {
+  font-size: clamp(3.2rem, 5.1vw, 6.5rem);
+}
+
+
+/* ========================================
+   SWEET — HOVER
+   ======================================== */
+
+@media (hover: hover) and (pointer: fine) {
+
+  .recipe-index-sweet
+  .recipe-index-list a:hover {
+    transform: translateY(-6px);
+  }
+
+}
+
 /* ========================================
    MOBILE
    ======================================== */

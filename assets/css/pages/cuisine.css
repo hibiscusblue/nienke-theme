@@ -1,12 +1,47 @@
 /* ==========================================================
-   CUISINE — SAVOURY / SWEET
+   NIENKE — CUISINE
+   SAVOURY / SWEET
    ========================================================== */
 
+/* ========================================
+   PAGE
+   ======================================== */
+
+html:has(.cuisine-landing),
+html:has(.cuisine-landing) body {
+  width: 100%;
+  height: 100%;
+  max-width: 100%;
+
+  margin: 0 !important;
+  padding: 0 !important;
+
+  overflow: hidden !important;
+}
+
+body > .wp-site-blocks {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* ========================================
+   CUISINE CANVAS
+   ======================================== */
+
 .cuisine-landing {
-  position: relative;
+  position: fixed;
+
+  top: 54px;
+  right: 0;
+  bottom: 0;
+  left: 0;
 
   width: 100%;
-  height: calc(100svh - 54px);
+
+  margin: 0;
+  padding: 0;
+
+  box-sizing: border-box;
 
   overflow: hidden;
 
@@ -14,44 +49,52 @@
   color: #111;
 }
 
+.cuisine-landing *,
+.cuisine-landing *::before,
+.cuisine-landing *::after {
+  box-sizing: border-box;
+}
 
 /* ========================================
-   TWO CHOICES
+   CHOICES
    ======================================== */
 
 .cuisine-choices {
   position: absolute;
   inset: 0;
 
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+  display: flex;
 
   align-items: center;
+  justify-content: center;
 
+  gap: clamp(70px, 9vw, 170px);
+
+  margin: 0;
   padding: 0 6%;
+
   box-sizing: border-box;
 }
-
 
 /* ========================================
    TYPOGRAPHY
    ======================================== */
 
 .cuisine-choice {
-  display: block;
+  display: inline-block;
+
+  margin: 0;
+  padding: 0;
 
   color: #111;
 
-  font-family:
-    "Times New Roman",
-    Times,
-    serif;
+  font-family: "Times New Roman", Times, serif;
 
-  font-size: clamp(4rem, 7.5vw, 9rem);
+  font-size: clamp(4rem, 6.2vw, 7.5rem);
   font-weight: 400;
 
-  line-height: 0.85;
-  letter-spacing: -0.045em;
+  line-height: 0.9;
+  letter-spacing: -0.05em;
 
   white-space: nowrap;
 
@@ -63,105 +106,109 @@
     letter-spacing 0.6s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-
-/* ========================================
-   POSITION
-   ======================================== */
-
-.cuisine-choice-savoury {
-  justify-self: start;
-}
-
-
-.cuisine-choice-sweet {
-  justify-self: end;
-}
-
-
 /* ========================================
    HOVER
    ======================================== */
 
 @media (hover: hover) and (pointer: fine) {
-
   .cuisine-choice:hover {
-    opacity: 0.45;
+    opacity: 0.42;
 
-    letter-spacing: -0.015em;
+    letter-spacing: -0.02em;
 
     transform: translateY(-5px);
   }
-
 }
 
+/* ========================================
+   KEYBOARD FOCUS
+   ======================================== */
 
+.cuisine-choice:focus-visible {
+  outline: 1px solid #111;
+  outline-offset: 10px;
+}
+
+/* ========================================
+   BACK
+   ======================================== */
+
+.cuisine-back {
+  position: absolute;
+
+  left: 2.8%;
+  bottom: 4%;
+
+  z-index: 10;
+
+  color: #111 !important;
+
+  font-family: "Times New Roman", Times, serif;
+  font-size: 25px;
+  line-height: 1;
+
+  text-decoration: none !important;
+
+  opacity: 0.5;
+
+  transition:
+    opacity 0.3s ease,
+    transform 0.4s ease;
+}
+
+.cuisine-back:hover {
+  opacity: 1;
+
+  transform: translateX(-4px);
+}
 /* ========================================
    MOBILE
    ======================================== */
 
 @media (max-width: 768px) {
-
   .cuisine-landing {
-    height: calc(100svh - 50px);
+    top: 50px;
   }
 
-
   .cuisine-choices {
-    grid-template-columns: 1fr;
+    flex-direction: column;
 
-    align-content: center;
-
-    gap: 55px;
+    gap: clamp(38px, 7vh, 65px);
 
     padding: 0 20px;
   }
 
-
   .cuisine-choice {
-    font-size: clamp(3.5rem, 17vw, 6rem);
+    font-size: clamp(3.4rem, 15vw, 5.5rem);
+
+    line-height: 0.9;
+
+    text-align: center;
   }
-
-
-  .cuisine-choice-savoury {
-    justify-self: start;
-  }
-
-
-  .cuisine-choice-sweet {
-    justify-self: end;
-  }
-
 }
-
 
 /* ========================================
    VERY SMALL PHONE
    ======================================== */
 
 @media (max-width: 420px) {
-
   .cuisine-choices {
-    gap: 42px;
+    gap: 36px;
 
     padding: 0 14px;
   }
 
-
   .cuisine-choice {
-    font-size: clamp(3rem, 16vw, 4.5rem);
+    font-size: clamp(3rem, 14vw, 4.2rem);
   }
-
 }
-
 
 /* ========================================
    REDUCED MOTION
    ======================================== */
 
 @media (prefers-reduced-motion: reduce) {
-
   .cuisine-choice {
     transition: none;
   }
-
 }
