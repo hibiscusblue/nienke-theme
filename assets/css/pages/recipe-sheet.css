@@ -4,7 +4,6 @@
    Mobile: flowing two-column editorial composition
    ========================================================== */
 
-
 /* ========================================
    GLOBAL RECIPE RESET
    ======================================== */
@@ -28,7 +27,6 @@ html:has(.recipe-sheet) body > .wp-site-blocks {
   box-sizing: border-box;
 }
 
-
 /* ========================================
    DESKTOP CANVAS
    ======================================== */
@@ -48,7 +46,6 @@ html:has(.recipe-sheet) body > .wp-site-blocks {
 
   font-family: "Times New Roman", Times, serif;
 }
-
 
 /* ========================================
    TITLE
@@ -75,7 +72,6 @@ html:has(.recipe-sheet) body > .wp-site-blocks {
   letter-spacing: -0.055em;
 }
 
-
 /* ========================================
    SECTION LABELS
    ======================================== */
@@ -85,15 +81,14 @@ html:has(.recipe-sheet) body > .wp-site-blocks {
 
   font-family: Arial, Helvetica, sans-serif;
 
-  font-size: 10px;
+  font-size: 12px;
   font-weight: 400;
 
   line-height: 1;
   letter-spacing: 0.24em;
 
-  opacity: 0.46;
+  opacity: 0.48;
 }
-
 
 /* ========================================
    DESKTOP RECIPE COMPOSITION
@@ -104,23 +99,22 @@ html:has(.recipe-sheet) body > .wp-site-blocks {
 .recipe-sheet-body {
   position: absolute;
 
-  top: 31%;
+  top: 33%;
   left: 7%;
 
   display: grid;
 
   grid-template-columns:
-    minmax(320px, 390px)
-    minmax(250px, 310px)
-    minmax(250px, 290px);
+    minmax(350px, 410px)
+    minmax(330px, 390px)
+    minmax(300px, 340px);
 
-  column-gap: clamp(24px, 2.2vw, 42px);
+  column-gap: clamp(42px, 3vw, 62px);
 
   align-items: start;
 
-  width: min(1080px, 86vw);
+  width: min(1260px, 86vw);
 }
-
 
 /* ========================================
    INGREDIENTS
@@ -134,21 +128,20 @@ html:has(.recipe-sheet) body > .wp-site-blocks {
   display: grid;
 
   grid-template-columns:
-    minmax(140px, 1fr)
-    minmax(160px, 1.1fr);
+    minmax(150px, 1fr)
+    minmax(170px, 1.1fr);
 
-  column-gap: 28px;
+  column-gap: 36px;
 }
 
 .recipe-ingredients-list p {
   margin: 0;
 
-  font-size: clamp(13px, 0.9vw, 16px);
+  font-size: clamp(15px, 1.05vw, 18px);
 
   line-height: 1.58;
   letter-spacing: -0.012em;
 }
-
 
 /* ========================================
    FRITTATA IMAGE — DESKTOP
@@ -160,13 +153,11 @@ html:has(.recipe-sheet) body > .wp-site-blocks {
   align-self: start;
   justify-self: center;
 
-  width: 112%;
+  width: 125%;
 
-  margin: 34px 0 0;
+  margin: 24px 0 0;
 
-  transform:
-    translateX(-10px)
-    rotate(-1.5deg);
+  transform: translateX(-8px) rotate(-1.5deg);
 
   transform-origin: center;
 
@@ -184,7 +175,6 @@ html:has(.recipe-sheet) body > .wp-site-blocks {
   object-fit: contain;
 }
 
-
 /* ========================================
    METHOD
    ======================================== */
@@ -196,13 +186,13 @@ html:has(.recipe-sheet) body > .wp-site-blocks {
 .recipe-step {
   display: grid;
 
-  grid-template-columns: 27px minmax(0, 1fr);
+  grid-template-columns: 29px minmax(0, 1fr);
 
-  column-gap: 5px;
+  column-gap: 7px;
 
   align-items: start;
 
-  margin: 0 0 17px;
+  margin: 0 0 19px;
 }
 
 .recipe-step-number {
@@ -210,20 +200,20 @@ html:has(.recipe-sheet) body > .wp-site-blocks {
 
   font-family: Arial, Helvetica, sans-serif;
 
-  font-size: 8px;
+  font-size: 9px;
 
   line-height: 1;
   letter-spacing: 0.1em;
 
-  opacity: 0.27;
+  opacity: 0.28;
 }
 
 .recipe-step h3 {
-  margin: 0 0 4px;
+  margin: 0 0 6px;
 
   font-family: "Times New Roman", Times, serif;
 
-  font-size: clamp(14px, 1vw, 17px);
+  font-size: clamp(16px, 1.1vw, 19px);
   font-weight: 400;
 
   line-height: 1;
@@ -233,15 +223,14 @@ html:has(.recipe-sheet) body > .wp-site-blocks {
 .recipe-step p {
   margin: 0;
 
-  max-width: 220px;
+  max-width: 270px;
 
-  font-size: clamp(11px, 0.78vw, 13px);
+  font-size: clamp(13px, 0.9vw, 15px);
 
-  line-height: 1.32;
+  line-height: 1.34;
 
-  opacity: 0.63;
+  opacity: 0.65;
 }
-
 
 /* ========================================
    BACK
@@ -276,13 +265,11 @@ html:has(.recipe-sheet) body > .wp-site-blocks {
   transform: translateX(-4px);
 }
 
-
 /* ========================================
    SHORT DESKTOP SCREENS
    ======================================== */
 
 @media (max-height: 760px) and (min-width: 769px) {
-
   .recipe-sheet-title {
     top: 7%;
   }
@@ -292,7 +279,7 @@ html:has(.recipe-sheet) body > .wp-site-blocks {
   }
 
   .recipe-step {
-    margin-bottom: 12px;
+    margin-bottom: 20px;
   }
 
   .frittata-image {
@@ -300,14 +287,11 @@ html:has(.recipe-sheet) body > .wp-site-blocks {
   }
 }
 
-
 /* ==========================================================
    MOBILE — EDITORIAL RECIPE
    ========================================================== */
 
 @media (max-width: 768px) {
-
-
   /* ========================================
      PAGE
      ======================================== */
@@ -339,14 +323,10 @@ html:has(.recipe-sheet) body > .wp-site-blocks {
        This is the breathing room beneath it.
     */
 
-    padding:
-      46px
-      6vw
-      34px;
+    padding: 46px 6vw 34px;
 
     overflow: hidden;
   }
-
 
   /* ========================================
      TITLE
@@ -373,7 +353,6 @@ html:has(.recipe-sheet) body > .wp-site-blocks {
 
     white-space: nowrap;
   }
-
 
   /* ========================================
      MOBILE COMPOSITION
@@ -404,7 +383,6 @@ html:has(.recipe-sheet) body > .wp-site-blocks {
     margin: 0;
   }
 
-
   /* ========================================
      MOBILE SECTION LABELS
      ======================================== */
@@ -422,7 +400,6 @@ html:has(.recipe-sheet) body > .wp-site-blocks {
 
     opacity: 0.47;
   }
-
 
   /* ========================================
      MOBILE INGREDIENTS
@@ -442,16 +419,15 @@ html:has(.recipe-sheet) body > .wp-site-blocks {
   }
 
   .recipe-ingredients-list p {
-    margin: 0 0 27px;
+    margin: 0;
 
-    font-size: clamp(11px, 3.25vw, 15px);
+    font-size: clamp(14px, 0.95vw, 17px);
 
-    line-height: 1.48;
-    letter-spacing: -0.015em;
+    line-height: 1.58;
+    letter-spacing: -0.012em;
 
     overflow-wrap: normal;
   }
-
 
   /* ========================================
      MOBILE METHOD
@@ -520,7 +496,6 @@ html:has(.recipe-sheet) body > .wp-site-blocks {
     opacity: 0.62;
   }
 
-
   /* ========================================
      MOBILE FRITTATA
 
@@ -559,7 +534,6 @@ html:has(.recipe-sheet) body > .wp-site-blocks {
     object-fit: contain;
   }
 
-
   /* ========================================
      MOBILE BACK
      ======================================== */
@@ -582,13 +556,11 @@ html:has(.recipe-sheet) body > .wp-site-blocks {
   }
 }
 
-
 /* ========================================
    VERY NARROW PHONES
    ======================================== */
 
 @media (max-width: 390px) {
-
   .recipe-sheet {
     padding-right: 5vw;
     padding-left: 5vw;
@@ -629,13 +601,11 @@ html:has(.recipe-sheet) body > .wp-site-blocks {
   }
 }
 
-
 /* ========================================
    REDUCED MOTION
    ======================================== */
 
 @media (prefers-reduced-motion: reduce) {
-
   .recipe-sheet-back {
     transition: none;
   }
