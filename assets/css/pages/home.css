@@ -1,38 +1,63 @@
-/* NIENKE — REFINED RESPONSIVE EDITORIAL MOSAIC */
+/* ==========================================================
+   NIENKE VAN ZATRATE — EDITORIAL HOME
+   Two-column grid, artwork positioned within each cell.
+   ========================================================== */
+
+/* 01 — PAGE AND GRID */
 .nienke-home {
   width: 100%;
   margin: 0;
   padding: 0;
   overflow: hidden;
-  background: #f4f0e7;
   color: #111;
+  background: #f4f0e7;
 }
+
 .nienke-mosaic {
-  position: relative;
+  box-sizing: border-box;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-rows: repeat(2, minmax(0, 1fr));
+  gap: clamp(12px, 2vw, 32px);
   width: 100%;
   height: calc(100svh - 54px);
+  padding: clamp(76px, 11svh, 125px) clamp(20px, 5vw, 100px)
+    clamp(16px, 3svh, 36px);
   overflow: hidden;
   isolation: isolate;
   background: #f4f0e7;
 }
+
+.mosaic-cell {
+  position: relative;
+  min-width: 0;
+  min-height: 0;
+  isolation: isolate;
+}
+
+/* 02 — TYPOGRAPHY */
 .mosaic-word {
   position: absolute;
-  z-index: 10;
-  display: block;
+  top: 0;
+  left: 0;
+  z-index: 3;
+  display: inline-block;
+  max-width: 100%;
   margin: 0;
   padding: 0;
   color: #111;
   font-family: "Times New Roman", Times, serif;
-  font-size: clamp(2.7rem, 5.7vw, 7.4rem);
+  font-size: clamp(2.6rem, 5.6vw, 7.4rem);
   font-weight: 400;
-  line-height: 0.9;
-  letter-spacing: -0.055em;
-  text-decoration: none;
+  line-height: 0.95;
+  letter-spacing: -0.06em;
   white-space: nowrap;
+  text-decoration: none;
   transition:
-    opacity 0.3s,
-    transform 0.5s;
+    opacity 0.3s ease,
+    transform 0.4s ease;
 }
+
 .mosaic-word:hover,
 .mosaic-word:focus-visible {
   color: #111;
@@ -40,209 +65,216 @@
   transform: translateY(-3px);
   text-decoration: none;
 }
-.mosaic-image,
-.mosaic-image-02 {
+
+/* 03 — ARTWORK BASE */
+.mosaic-art {
   position: absolute;
   display: block;
+  max-width: none;
+  height: auto;
   margin: 0;
   padding: 0;
+  transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
 }
-.mosaic-image img,
-.mosaic-image-02 img {
+
+.mosaic-art img {
   display: block;
   width: 100%;
   height: auto;
   user-select: none;
-  transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
 }
-.mosaic-image-04:hover img,
-.mosaic-image-02:hover img {
-  transform: translateY(-6px) rotate(-1deg) scale(1.02);
+
+a.mosaic-art:hover {
+  transform: translateY(-6px) rotate(-1deg);
 }
-/* DESKTOP: two columns; artwork is scaled by both viewport width and height. */
-.mosaic-cuisine {
-  top: 11%;
-  left: 6%;
+
+/* 04 — DESKTOP CELL COMPOSITIONS
+   Edit width here to enlarge an image. No min() height cap.
+   Artwork stays inside its own grid cell. */
+
+.mosaic-frittata {
+  width: 86%;
+  left: 9%;
+  top: 23%;
+  z-index: 2;
 }
-.mosaic-notes {
-  top: 11%;
+
+.mosaic-cell-insights .mosaic-word {
+  left: auto;
+  right: 0;
+}
+
+.mosaic-quiet {
+  width: 78%;
   right: 7%;
+  top: 25%;
+  z-index: 1;
 }
-.mosaic-obsessions {
-  top: 68%;
+
+.mosaic-cell-passions .mosaic-word {
+  top: 2%;
+}
+
+.mosaic-second-life {
+  width: 72%;
   left: 8%;
-}
-.mosaic-shop {
-  top: 75%;
-  right: 9%;
-}
-.mosaic-image-04 {
-  z-index: 11;
-  width: min(26vw, 43vh, 420px);
-  top: 26%;
-  left: 13%;
-}
-.mosaic-image-05 {
-  z-index: 8;
-  width: min(22vw, 35vh, 350px);
   top: 28%;
-  right: 19%;
+  z-index: 1;
 }
-/* Second Life must be visibly present, not hidden below the viewport. */
-.mosaic-image-03 {
-  z-index: 7;
-  width: min(15vw, 24vh, 220px);
-  left: 4%;
-  bottom: 1%;
-}
-/* Cookie floats above SHOP, with a clear gap from the lettering. */
-.mosaic-image-02 {
-  z-index: 11;
-  width: min(12vw, 20vh, 190px);
+
+.mosaic-cell-shop .mosaic-word {
+  left: auto;
   right: 7%;
-  top: 49%;
+  top: 2%;
 }
-/* MEDIUM DESKTOP / TABLET LANDSCAPE */
-@media (min-width: 769px) and (max-width: 1199px) {
-  .mosaic-word {
-    font-size: clamp(2.6rem, 5.9vw, 5.5rem);
-  }
-  .mosaic-cuisine {
-    left: 5%;
-  }
-  .mosaic-notes {
-    right: 5%;
-  }
-  .mosaic-obsessions {
-    left: 8%;
-  }
-  .mosaic-shop {
-    right: 8%;
-  }
-  .mosaic-image-04 {
-    width: min(29vw, 40vh);
-    left: 11%;
-  }
-  .mosaic-image-05 {
-    width: min(25vw, 32vh);
-    right: 17%;
-  }
-  .mosaic-image-03 {
-    width: min(17vw, 22vh);
-    left: 4%;
-  }
-  .mosaic-image-02 {
-    width: min(14vw, 18vh);
-    right: 7%;
-    top: 51%;
-  }
+
+.mosaic-cookie {
+  width: 57%;
+  right: 8%;
+  top: 29%;
+  z-index: 2;
 }
-/* PORTRAIT TABLETS & PHONES: deliberate vertical sequence. */
-@media (max-width: 768px) {
+
+/* 05 — TABLETS AND SMALLER DESKTOPS */
+@media (min-width: 701px) and (max-width: 1100px) {
   .nienke-mosaic {
-    height: calc(100svh - 50px);
+    padding-left: 4vw;
+    padding-right: 4vw;
+    gap: 2vw;
   }
+
   .mosaic-word {
-    font-size: clamp(1.9rem, 8.6vw, 4.2rem);
+    font-size: clamp(2.4rem, 6.1vw, 5.8rem);
   }
-  .mosaic-cuisine {
-    top: 10%;
-    left: 5%;
-  }
-  .mosaic-image-04 {
-    width: min(43vw, 24vh);
-    top: 18%;
-    left: 8%;
-  }
-  .mosaic-notes {
-    top: 34%;
-    right: 5%;
-  }
-  .mosaic-image-05 {
-    width: min(39vw, 20vh);
-    top: 42%;
-    right: 8%;
-  }
-  .mosaic-obsessions {
-    top: 64%;
-    left: 5%;
-  }
-  .mosaic-image-03 {
-    width: min(26vw, 16vh);
-    left: 7%;
-    bottom: 2%;
-  }
-  .mosaic-shop {
-    top: 85%;
-    right: 6%;
-  }
-  .mosaic-image-02 {
-    width: min(23vw, 13vh);
-    top: 69%;
-    right: 10%;
-  }
-}
-/* Very narrow phones: keep long headings readable. */
-@media (max-width: 380px) {
-  .mosaic-word {
-    font-size: clamp(1.7rem, 8.2vw, 2.6rem);
-  }
-  .mosaic-notes {
-    right: 4%;
-  }
-}
-/* Short landscape displays */
-@media (min-width: 769px) and (max-height: 680px) {
-  .mosaic-word {
-    font-size: clamp(2.3rem, 5vw, 5.3rem);
-  }
-  .mosaic-obsessions {
-    top: 69%;
-  }
-  .mosaic-shop {
-    top: 74%;
-  }
-  .mosaic-image-04 {
-    width: min(23vw, 40vh);
+  .mosaic-frittata {
+    width: 88%;
+    left: 6%;
     top: 25%;
   }
-  .mosaic-image-05 {
-    width: min(19vw, 34vh);
+  .mosaic-quiet {
+    width: 160%;
+    right: -40%;
+    top: 27%;
+  }
+  .mosaic-second-life {
+    width: 140%;
+    left: -30%;
+    top: 12.5%;
+  }
+  .mosaic-cookie {
+    width: 85%;
+    right: -8%;
+    top: -10%;
+  }
+}
+
+/* 06 — SHORT LANDSCAPE SCREENS
+   Limit image width by cell height only on short screens. */
+@media (min-width: 701px) and (max-height: 720px) {
+  .nienke-mosaic {
+    padding-top: clamp(62px, 10svh, 90px);
+    padding-bottom: 12px;
+  }
+
+  .mosaic-word {
+    font-size: clamp(2.4rem, 5vw, 5.5rem);
+  }
+  .mosaic-frittata {
+    width: min(86%, 57svh);
+  }
+  .mosaic-quiet {
+    width: min(78%, 49svh);
+  }
+  .mosaic-second-life {
+    width: min(72%, 45svh);
+  }
+  .mosaic-cookie {
+    width: min(57%, 36svh);
+  }
+}
+
+/* 07 — PHONES: FOUR STACKED EDITORIAL CELLS */
+@media (max-width: 700px) {
+  .nienke-mosaic {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: repeat(4, minmax(0, 1fr));
+    gap: 1svh;
+    height: calc(100svh - 50px);
+    padding: clamp(58px, 9svh, 86px) 5vw 12px;
+  }
+
+  .mosaic-word {
+    font-size: clamp(2rem, 9.2vw, 4.6rem);
+    letter-spacing: -0.055em;
+  }
+
+  .mosaic-cell-cuisine .mosaic-word,
+  .mosaic-cell-passions .mosaic-word {
+    left: 0;
+    top: 0;
+  }
+
+  .mosaic-cell-insights .mosaic-word,
+  .mosaic-cell-shop .mosaic-word {
+    left: auto;
+    right: 0;
+    top: 0;
+  }
+
+  .mosaic-frittata {
+    width: 43%;
+    left: 48%;
+    top: 12%;
+  }
+  .mosaic-quiet {
+    width: 40%;
+    right: 10%;
+    top: 34%;
+  }
+  .mosaic-second-life {
+    width: 40%;
+    left: 48%;
     top: 26%;
   }
-  .mosaic-image-02 {
-    width: min(11vw, 19vh);
-    top: 48%;
-  }
-  .mosaic-image-03 {
-    width: min(14vw, 23vh);
+  .mosaic-cookie {
+    width: 34%;
+    right: 13%;
+    top: 36%;
   }
 }
-@media (max-width: 768px) and (max-height: 650px) {
+
+/* 08 — SHORT PHONES */
+@media (max-width: 700px) and (max-height: 650px) {
+  .nienke-mosaic {
+    padding-top: 54px;
+    gap: 0;
+  }
   .mosaic-word {
-    font-size: clamp(1.65rem, 7.8vw, 3.3rem);
+    font-size: clamp(1.8rem, 8vw, 3.2rem);
   }
-  .mosaic-image-04 {
-    width: min(37vw, 22vh);
+  .mosaic-frittata {
+    width: 35%;
   }
-  .mosaic-image-05 {
-    width: min(33vw, 19vh);
+  .mosaic-quiet {
+    width: 32%;
   }
-  .mosaic-image-02 {
-    width: min(21vw, 12vh);
+  .mosaic-second-life {
+    width: 32%;
   }
-  .mosaic-image-03 {
-    width: min(24vw, 15vh);
+  .mosaic-cookie {
+    width: 28%;
   }
 }
+
+/* 09 — ACCESSIBILITY */
 @media (prefers-reduced-motion: reduce) {
   .mosaic-word,
-  .mosaic-image img,
-  .mosaic-image-02 img {
+  .mosaic-art {
     transition: none;
   }
 }
-/* Single-screen homepage and its existing header behaviour */
+
+/* 10 — HOMEPAGE-ONLY WORDPRESS AND HEADER RULES */
 html:has(.nienke-home),
 html:has(.nienke-home) body {
   width: 100%;
@@ -252,10 +284,12 @@ html:has(.nienke-home) body {
   padding: 0 !important;
   overflow: hidden !important;
 }
+
 html:has(.nienke-home) body > .wp-site-blocks {
   margin: 0 !important;
   padding: 0 !important;
 }
+
 html:has(.nienke-home) .nienke-home-mark {
   display: none !important;
 }
@@ -265,6 +299,7 @@ html:has(.nienke-home) .nienke-menu {
 html:has(.nienke-home) .nienke-nav-panel {
   left: 50%;
 }
+
 html:has(.nienke-home) .nienke-main-nav::before {
   left: 35px;
   right: -35px;

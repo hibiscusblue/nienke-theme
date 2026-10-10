@@ -1,51 +1,27 @@
-<!-- ========================================
-     NIENKE — INTRO
-     ======================================== -->
 <!-- wp:template-part {"slug":"intro","tagName":"div"} /-->
-
-<!-- ========================================
-     HEADER
-     ======================================== -->
 <!-- wp:template-part {"slug":"header","tagName":"header"} /-->
-
-<!-- ========================================
-     HOMEPAGE
-     ======================================== -->
 <!-- wp:group {"tagName":"main","className":"nienke-home","layout":{"type":"default"}} -->
 <main class="wp-block-group nienke-home">
   <!-- wp:html -->
   <section class="nienke-mosaic" aria-label="Explore Nienke van Zatrate">
-
-    <a class="mosaic-word mosaic-cuisine" href="/cuisine/">CUISINE</a>
-
-    <a class="mosaic-image mosaic-image-04" href="/savoury/" aria-label="Explore savoury recipes">
-      <img src="/wp-content/themes/nienke-theme-3/assets/images/slice.png" alt="Frittata" />
-    </a>
-
-    <a class="mosaic-word mosaic-notes" href="/notes/">INSIGHTS</a>
-
-    <div class="mosaic-image mosaic-image-05" aria-hidden="true">
-      <img src="/wp-content/themes/nienke-theme-3/assets/images/quiet.png" alt="" />
+    <div class="mosaic-cell mosaic-cell-cuisine">
+      <a class="mosaic-word" href="/cuisine/">CUISINE</a>
+      <a class="mosaic-art mosaic-frittata" href="/savoury/" aria-label="Explore savoury recipes"><img src="/wp-content/themes/nienke-theme-3/assets/images/slice.png" alt="Frittata" /></a>
     </div>
-
-    <a class="mosaic-word mosaic-obsessions" href="/passions/">PASSIONS</a>
-
-    <div class="mosaic-image mosaic-image-03" aria-hidden="true">
-      <img src="/wp-content/themes/nienke-theme-3/assets/images/second-life.png" alt="" />
+    <div class="mosaic-cell mosaic-cell-insights">
+      <a class="mosaic-word" href="/notes/">INSIGHTS</a>
+      <img class="mosaic-art mosaic-quiet" src="/wp-content/themes/nienke-theme-3/assets/images/quiet.png" alt="" />
     </div>
-
-    <a class="mosaic-word mosaic-shop" href="https://naim-cookies.web.app/" target="_blank" rel="noopener noreferrer" aria-label="Shop Naim Cookies (opens in a new tab)">SHOP</a>
-
-    <a class="mosaic-image-02" href="/sweet/" aria-label="Explore sweet recipes">
-      <img src="/wp-content/themes/nienke-theme-3/assets/images/raspberry-cookie.png" alt="Raspberry cookie" />
-    </a>
-
+    <div class="mosaic-cell mosaic-cell-passions">
+      <a class="mosaic-word" href="/passions/">PASSIONS</a>
+      <img class="mosaic-art mosaic-second-life" src="/wp-content/themes/nienke-theme-3/assets/images/second-life.png" alt="" />
+    </div>
+    <div class="mosaic-cell mosaic-cell-shop">
+      <a class="mosaic-word" href="https://naim-cookies.web.app/" target="_blank" rel="noopener noreferrer">SHOP</a>
+      <a class="mosaic-art mosaic-cookie" href="/sweet/" aria-label="Explore sweet recipes"><img src="/wp-content/themes/nienke-theme-3/assets/images/raspberry-cookie.png" alt="Raspberry cookie" /></a>
+    </div>
   </section>
   <!-- /wp:html -->
 </main>
 <!-- /wp:group -->
-
-<!-- ========================================
-     FOOTER
-     ======================================== -->
 <!-- wp:template-part {"slug":"footer","tagName":"footer"} /-->
