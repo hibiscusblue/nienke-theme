@@ -755,153 +755,172 @@ header.wp-block-template-part {
 
    ========================================================== */
 
-
 @keyframes nienkeBunnyJump {
 
-  /* ----------------------------------------
-     0% — REST
-     ---------------------------------------- */
-
+  /* 0 — innocent */
   0% {
     transform:
       translateY(0)
+      translateX(0)
+      rotate(0)
       scaleX(1)
       scaleY(1);
   }
 
 
-  /* ----------------------------------------
-     12% — ANTICIPATION
+  /* 1 — huh? */
+  7% {
+    transform:
+      translateY(0)
+      translateX(-1px)
+      rotate(-5deg)
+      scale(1);
+  }
 
-     The bunny lowers very slightly before
-     committing to the jump.
-     ---------------------------------------- */
 
-  12% {
+  /* 2 — looks the other way */
+  13% {
+    transform:
+      translateY(0)
+      translateX(1px)
+      rotate(4deg)
+      scale(1);
+  }
+
+
+  /* 3 — decides to jump */
+  19% {
     transform:
       translateY(2px)
-      scaleX(1.03)
-      scaleY(0.97);
+      rotate(0)
+      scaleX(1.08)
+      scaleY(0.92);
   }
 
 
-  /* ----------------------------------------
-     22% — SQUASH
-
-     Stored energy.
-     Wider + shorter.
-     ---------------------------------------- */
-
-  22% {
+  /* 4 — BIG anticipation squash */
+  26% {
     transform:
-      translateY(4px)
-      scaleX(1.18)
-      scaleY(0.78);
+      translateY(6px)
+      rotate(-1deg)
+      scaleX(1.25)
+      scaleY(0.70);
   }
 
 
-  /* ----------------------------------------
-     34% — TAKEOFF
-
-     Narrower + taller.
-     ---------------------------------------- */
-
+  /* 5 — takeoff */
   34% {
     transform:
-      translateY(-18px)
-      scaleX(0.91)
-      scaleY(1.12);
+      translateY(-15px)
+      translateX(2px)
+      rotate(5deg)
+      scaleX(0.88)
+      scaleY(1.18);
   }
 
 
-  /* ----------------------------------------
-     48% — APEX
-
-     Highest point.
-     Almost normal proportions again.
-     ---------------------------------------- */
-
-  48% {
+  /* 6 — flying upward */
+  43% {
     transform:
-      translateY(-34px)
-      scaleX(0.96)
-      scaleY(1.05);
+      translateY(-39px)
+      translateX(5px)
+      rotate(8deg)
+      scaleX(0.94)
+      scaleY(1.09);
   }
 
 
-  /* ----------------------------------------
-     58% — HANG
-
-     A tiny moment of suspended weightlessness.
-     ---------------------------------------- */
-
-  58% {
+  /* 7 — APEX */
+  51% {
     transform:
-      translateY(-36px)
+      translateY(-48px)
+      translateX(6px)
+      rotate(3deg)
       scaleX(1)
       scaleY(1);
   }
 
 
-  /* ----------------------------------------
-     70% — FALL
-
-     Slight vertical stretch as gravity wins.
-     ---------------------------------------- */
-
-  70% {
+  /* 8 — tiny impossible moment of suspension */
+  56% {
     transform:
-      translateY(-17px)
-      scaleX(0.94)
-      scaleY(1.08);
-  }
-
-
-  /* ----------------------------------------
-     80% — THUMP
-
-     Strong landing squash.
-     ---------------------------------------- */
-
-  80% {
-    transform:
-      translateY(4px)
-      scaleX(1.20)
-      scaleY(0.76);
-  }
-
-
-  /* ----------------------------------------
-     88% — REBOUND
-     ---------------------------------------- */
-
-  88% {
-    transform:
-      translateY(-3px)
-      scaleX(0.97)
-      scaleY(1.05);
-  }
-
-
-  /* ----------------------------------------
-     94% — SECOND TINY SETTLE
-     ---------------------------------------- */
-
-  94% {
-    transform:
-      translateY(1px)
+      translateY(-48px)
+      translateX(6px)
+      rotate(-1deg)
       scaleX(1.02)
       scaleY(0.98);
   }
 
 
-  /* ----------------------------------------
-     100% — REST
-     ---------------------------------------- */
+  /* 9 — gravity remembers the bunny */
+  64% {
+    transform:
+      translateY(-40px)
+      translateX(5px)
+      rotate(-5deg)
+      scaleX(0.96)
+      scaleY(1.06);
+  }
 
+
+  /* 10 — falling faster */
+  72% {
+    transform:
+      translateY(-17px)
+      translateX(2px)
+      rotate(-3deg)
+      scaleX(0.91)
+      scaleY(1.13);
+  }
+
+
+  /* 11 — THUMP */
+  79% {
+    transform:
+      translateY(6px)
+      translateX(0)
+      rotate(0)
+      scaleX(1.28)
+      scaleY(0.68);
+  }
+
+
+  /* 12 — boing */
+  85% {
+    transform:
+      translateY(-7px)
+      rotate(2deg)
+      scaleX(0.94)
+      scaleY(1.09);
+  }
+
+
+  /* 13 — little second landing */
+  90% {
+    transform:
+      translateY(2px)
+      rotate(-1deg)
+      scaleX(1.08)
+      scaleY(0.92);
+  }
+
+
+  /* 14 — slightly stunned */
+  95% {
+    transform:
+      translateY(0)
+      rotate(2deg)
+      scaleX(0.99)
+      scaleY(1.01);
+  }
+
+
+  /* 15 — "I meant to do that." */
   100% {
     transform:
       translateY(0)
+      translateX(0)
+      rotate(0)
       scaleX(1)
       scaleY(1);
   }

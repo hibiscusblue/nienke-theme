@@ -1,590 +1,240 @@
-/* ==========================================================
-   NIENKE VAN ZATRATE — HOME
-   Editorial controlled-chaos mosaic
-   ========================================================== */
-
-/* ==========================================================
-   01. PAGE
-   ========================================================== */
-
+/* NIENKE — REFINED RESPONSIVE EDITORIAL MOSAIC */
 .nienke-home {
   width: 100%;
   margin: 0;
   padding: 0;
-
   overflow: hidden;
-
-  color: #111;
   background: #f4f0e7;
+  color: #111;
 }
-
-/* ==========================================================
-   02. EDITORIAL CANVAS
-   ========================================================== */
-
 .nienke-mosaic {
   position: relative;
-
   width: 100%;
   height: calc(100svh - 54px);
-  min-height: 720px;
-
   overflow: hidden;
   isolation: isolate;
-
   background: #f4f0e7;
 }
-
-/* ==========================================================
-   03. CATEGORY WORDS
-   ========================================================== */
-
 .mosaic-word {
   position: absolute;
   z-index: 10;
-
   display: block;
-
   margin: 0;
   padding: 0;
-
   color: #111;
-
   font-family: "Times New Roman", Times, serif;
-
-  font-size: clamp(5rem, 7.4vw, 9rem);
+  font-size: clamp(2.7rem, 5.7vw, 7.4rem);
   font-weight: 400;
-
-  line-height: 0.82;
-  letter-spacing: -0.045em;
-
-  text-transform: uppercase;
+  line-height: 0.9;
+  letter-spacing: -0.055em;
   text-decoration: none;
   white-space: nowrap;
-
   transition:
-    opacity 0.35s ease,
-    letter-spacing 0.7s cubic-bezier(0.16, 1, 0.3, 1),
-    transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+    opacity 0.3s,
+    transform 0.5s;
 }
-
 .mosaic-word:hover,
 .mosaic-word:focus-visible {
   color: #111;
-
-  opacity: 0.48;
-
-  letter-spacing: -0.02em;
-
+  opacity: 0.65;
+  transform: translateY(-3px);
   text-decoration: none;
-
-  transform: translateX(0.035em);
 }
-
-/* ==========================================================
-   04. DESKTOP TYPOGRAPHY POSITION
-   ========================================================== */
-
-/* CUISINE — upper left */
-
-.mosaic-cuisine {
-  top: 0%;
-  left: 2%;
-}
-
-/* INSIGHTS — upper right */
-
-.mosaic-notes {
-  top: 50%;
-  right: 20%;
-}
-
-/* PASSIONS — lower left / centre */
-
-.mosaic-obsessions {
-  left: 28%;
-  bottom: 5%;
-}
-
-/* ==========================================================
-   05. IMAGE SYSTEM
-   ========================================================== */
-
 .mosaic-image,
 .mosaic-image-02 {
   position: absolute;
-
   display: block;
-
   margin: 0;
   padding: 0;
 }
-
 .mosaic-image img,
 .mosaic-image-02 img {
   display: block;
-
   width: 100%;
   height: auto;
-
-  margin: 0;
-  padding: 0;
-
   user-select: none;
-
-  transform-origin: center;
-
-  transition:
-    transform 0.9s cubic-bezier(0.16, 1, 0.3, 1),
-    opacity 0.4s ease;
+  transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
 }
-
-/* ==========================================================
-   06. FRITTATA
-   ========================================================== */
-
-/*
-   CUISINE sits behind the food.
-
-   The slice is intentionally large enough to interrupt
-   the typography without swallowing the whole left side.
-*/
-
-.mosaic-image-04 {
-  z-index: 16;
-
-  width: 31%;
-
-  left: 3.5%;
-  top: 10%;
-}
-
-.mosaic-image-04:hover img {
-  transform: translateY(-7px) rotate(-0.3deg) scale(1.012);
-}
-
-/* ==========================================================
-   07. QUIET
-   ========================================================== */
-
-/*
-   Quiet occupies the upper-right edge.
-
-   INSIGHTS runs into the portrait rather than sitting
-   separately beside it.
-*/
-
-.mosaic-image-05 {
-  z-index: 15;
-
-  width: 47%;
-
-  right: 6%;
-  top: 8%;
-}
-
-.mosaic-image-05:hover img {
-  transform: translateY(-6px) scale(1.008);
-}
-
-/* ==========================================================
-   08. SECOND LIFE
-   ========================================================== */
-
-/*
-   Bottom-left counterweight.
-
-   Cropping is intentional: the artwork should appear
-   to continue beyond the viewport.
-*/
-
-.mosaic-image-03 {
-  z-index: 14;
-
-  width: 42%;
-
-  left: -10%;
-  bottom: 2.5%;
-}
-
-.mosaic-image-03:hover img {
-  transform: translateY(-7px) rotate(0.25deg) scale(1.008);
-}
-
-/* ==========================================================
-   09. RASPBERRY COOKIE
-   ========================================================== */
-
-/*
-   Small surreal punctuation mark.
-
-   It belongs visually to PASSIONS rather than floating
-   in the exact centre of the page.
-*/
-
-.mosaic-image-02 {
-  z-index: 17;
-
-  width: 25%;
-
-  left: 25%;
-  bottom: 30%;
-
-  color: #111;
-  text-decoration: none;
-}
-
+.mosaic-image-04:hover img,
 .mosaic-image-02:hover img {
-  transform: translateY(-9px) rotate(1deg) scale(1.018);
+  transform: translateY(-6px) rotate(-1deg) scale(1.02);
 }
-
-/* ==========================================================
-   10. CAT
-   ========================================================== */
-
-/*
-   The cat is intentionally intrusive.
-
-   Never try to fit the entire cat neatly into the screen.
-   The crop is part of the composition.
-*/
-
-.mosaic-image-01 {
-  z-index: 18;
-
-  width: 32%;
-
-  right: -5%;
-  bottom: 0%;
+/* DESKTOP: two columns; artwork is scaled by both viewport width and height. */
+.mosaic-cuisine {
+  top: 11%;
+  left: 6%;
 }
-
-.mosaic-image-01:hover img {
-  transform: translateY(-8px) rotate(-0.35deg) scale(1.01);
+.mosaic-notes {
+  top: 11%;
+  right: 7%;
 }
-
-/* ==========================================================
-   11. LARGE DESKTOP
-   1600px+
-   ========================================================== */
-
-@media (min-width: 1600px) {
-  .nienke-mosaic {
-    min-height: 0;
-  }
-
-  /* TYPE */
-
-  .mosaic-word {
-    font-size: clamp(6rem, 7.2vw, 9rem);
-  }
-
-  .mosaic-cuisine {
-    top: 10%;
-    left: 5.5%;
-  }
-
-  .mosaic-notes {
-    top: 21%;
-    left: 46%;
-  }
-
-  .mosaic-obsessions {
-    left: 24%;
-    bottom: 2%;
-  }
-
-  /* IMAGES */
-
-  .mosaic-image-04 {
-    width: 31%;
-    left: 3.5%;
-    top: 10%;
-  }
-
-  .mosaic-image-05 {
-    width: 25%;
-    right: 8%;
-    top: 4%;
-  }
-
-  .mosaic-image-03 {
-    width: 28%;
-    left: -4%;
-    bottom: -16%;
-  }
-
-  .mosaic-image-02 {
-    width: 18%;
-    left: 55%;
-    bottom: 3%;
-  }
-
-  .mosaic-image-01 {
-    width: 27%;
-    right: -5%;
-    bottom: -13%;
-  }
+.mosaic-obsessions {
+  top: 68%;
+  left: 8%;
 }
-
-/* ==========================================================
-   12. SMALL DESKTOP / TABLET LANDSCAPE
-   769px — 1199px
-   ========================================================== */
-
+.mosaic-shop {
+  top: 75%;
+  right: 9%;
+}
+.mosaic-image-04 {
+  z-index: 11;
+  width: min(26vw, 43vh, 420px);
+  top: 26%;
+  left: 13%;
+}
+.mosaic-image-05 {
+  z-index: 8;
+  width: min(22vw, 35vh, 350px);
+  top: 28%;
+  right: 19%;
+}
+/* Second Life must be visibly present, not hidden below the viewport. */
+.mosaic-image-03 {
+  z-index: 7;
+  width: min(15vw, 24vh, 220px);
+  left: 4%;
+  bottom: 1%;
+}
+/* Cookie floats above SHOP, with a clear gap from the lettering. */
+.mosaic-image-02 {
+  z-index: 11;
+  width: min(12vw, 20vh, 190px);
+  right: 7%;
+  top: 49%;
+}
+/* MEDIUM DESKTOP / TABLET LANDSCAPE */
 @media (min-width: 769px) and (max-width: 1199px) {
-  .nienke-mosaic {
-    min-height: 680px;
-  }
-
   .mosaic-word {
-    font-size: clamp(4rem, 8vw, 6.5rem);
+    font-size: clamp(2.6rem, 5.9vw, 5.5rem);
   }
-
-  /* TYPE */
-
   .mosaic-cuisine {
-    top: 15%;
-    left: 4%;
+    left: 5%;
   }
-
   .mosaic-notes {
-    top: 18%;
-    left: 45%;
+    right: 5%;
   }
-
   .mosaic-obsessions {
-    left: 21%;
-    bottom: 5%;
+    left: 8%;
   }
-
-  /* IMAGES */
-
+  .mosaic-shop {
+    right: 8%;
+  }
   .mosaic-image-04 {
-    width: 34%;
-    left: 4%;
-    top: 12%;
+    width: min(29vw, 40vh);
+    left: 11%;
   }
-
   .mosaic-image-05 {
-    width: 31%;
-    right: 2%;
-    top: 5%;
+    width: min(25vw, 32vh);
+    right: 17%;
   }
-
   .mosaic-image-03 {
-    width: 31%;
-    left: -5%;
-    bottom: -10%;
+    width: min(17vw, 22vh);
+    left: 4%;
   }
-
   .mosaic-image-02 {
-    width: 22%;
-    left: 53%;
-    bottom: 1%;
-  }
-
-  .mosaic-image-01 {
-    width: 33%;
-    right: -7%;
-    bottom: -10%;
+    width: min(14vw, 18vh);
+    right: 7%;
+    top: 51%;
   }
 }
-
-/* ==========================================================
-   13. MOBILE
-   768px AND BELOW
-
-   This becomes a vertical editorial composition rather
-   than a squeezed version of desktop.
-   ========================================================== */
-
+/* PORTRAIT TABLETS & PHONES: deliberate vertical sequence. */
 @media (max-width: 768px) {
   .nienke-mosaic {
     height: calc(100svh - 50px);
-    min-height: 650px;
   }
-
-  /* TYPE */
-
   .mosaic-word {
-    font-size: clamp(2.6rem, 12vw, 4.5rem);
-
-    line-height: 0.86;
-    letter-spacing: -0.045em;
+    font-size: clamp(1.9rem, 8.6vw, 4.2rem);
   }
-
   .mosaic-cuisine {
-    top: 20%;
-    left: 4%;
-  }
-
-  .mosaic-notes {
     top: 10%;
-    left: auto;
+    left: 5%;
+  }
+  .mosaic-image-04 {
+    width: min(43vw, 24vh);
+    top: 18%;
+    left: 8%;
+  }
+  .mosaic-notes {
+    top: 34%;
     right: 5%;
   }
-
-  .mosaic-obsessions {
-    left: 5%;
-    bottom: 11%;
-  }
-
-  /* FRITTATA */
-
-  .mosaic-image-04 {
-    width: 49%;
-
-    left: 25%;
-    top: 5%;
-  }
-
-  /* QUIET */
-
   .mosaic-image-05 {
-    width: 53%;
-
-    right: -8%;
-    top: 17%;
+    width: min(39vw, 20vh);
+    top: 42%;
+    right: 8%;
   }
-
-  /* SECOND LIFE */
-
+  .mosaic-obsessions {
+    top: 64%;
+    left: 5%;
+  }
   .mosaic-image-03 {
-    width: 47%;
-
-    left: -10%;
-    bottom: -4%;
+    width: min(26vw, 16vh);
+    left: 7%;
+    bottom: 2%;
   }
-
-  /* COOKIE */
-
+  .mosaic-shop {
+    top: 85%;
+    right: 6%;
+  }
   .mosaic-image-02 {
-    width: 34%;
-
-    left: 42%;
-    bottom: -1%;
-  }
-
-  /* CAT */
-
-  .mosaic-image-01 {
-    width: 48%;
-
-    right: -13%;
-    bottom: -5%;
+    width: min(23vw, 13vh);
+    top: 69%;
+    right: 10%;
   }
 }
-
-/* ==========================================================
-   14. SMALL MOBILE
-   ========================================================== */
-
-@media (max-width: 420px) {
-  .nienke-mosaic {
-    min-height: 610px;
-  }
-
+/* Very narrow phones: keep long headings readable. */
+@media (max-width: 380px) {
   .mosaic-word {
-    font-size: clamp(2.3rem, 11.5vw, 3.4rem);
+    font-size: clamp(1.7rem, 8.2vw, 2.6rem);
   }
-
-  .mosaic-cuisine {
-    top: 20%;
-    left: 4%;
-  }
-
   .mosaic-notes {
-    top: 10%;
     right: 4%;
   }
-
-  .mosaic-obsessions {
-    left: 4%;
-    bottom: 12%;
-  }
-
-  .mosaic-image-04 {
-    width: 51%;
-
-    left: 24%;
-    top: 5%;
-  }
-
-  .mosaic-image-05 {
-    width: 56%;
-
-    right: -10%;
-    top: 17%;
-  }
-
-  .mosaic-image-03 {
-    width: 50%;
-
-    left: -12%;
-    bottom: -4%;
-  }
-
-  .mosaic-image-02 {
-    width: 36%;
-
-    left: 41%;
-    bottom: -1%;
-  }
-
-  .mosaic-image-01 {
-    width: 51%;
-
-    right: -15%;
-    bottom: -5%;
-  }
 }
-
-/* ==========================================================
-   15. SHORT LAPTOP SCREENS
-   ========================================================== */
-
-@media (min-width: 769px) and (max-height: 760px) {
-  .nienke-mosaic {
-    min-height: 620px;
-  }
-
+/* Short landscape displays */
+@media (min-width: 769px) and (max-height: 680px) {
   .mosaic-word {
-    font-size: clamp(4.5rem, 7vw, 7.5rem);
+    font-size: clamp(2.3rem, 5vw, 5.3rem);
   }
-
-  .mosaic-cuisine {
-    top: 14%;
+  .mosaic-obsessions {
+    top: 69%;
   }
-
-  .mosaic-notes {
-    top: 18%;
+  .mosaic-shop {
+    top: 74%;
   }
-
   .mosaic-image-04 {
-    width: 27%;
+    width: min(23vw, 40vh);
+    top: 25%;
   }
-
   .mosaic-image-05 {
-    width: 25%;
+    width: min(19vw, 34vh);
+    top: 26%;
   }
-
-  .mosaic-image-03 {
-    width: 26%;
-  }
-
   .mosaic-image-02 {
-    width: 17%;
+    width: min(11vw, 19vh);
+    top: 48%;
   }
-
-  .mosaic-image-01 {
-    width: 27%;
+  .mosaic-image-03 {
+    width: min(14vw, 23vh);
   }
 }
-
-/* ==========================================================
-   16. ACCESSIBILITY
-   ========================================================== */
-
+@media (max-width: 768px) and (max-height: 650px) {
+  .mosaic-word {
+    font-size: clamp(1.65rem, 7.8vw, 3.3rem);
+  }
+  .mosaic-image-04 {
+    width: min(37vw, 22vh);
+  }
+  .mosaic-image-05 {
+    width: min(33vw, 19vh);
+  }
+  .mosaic-image-02 {
+    width: min(21vw, 12vh);
+  }
+  .mosaic-image-03 {
+    width: min(24vw, 15vh);
+  }
+}
 @media (prefers-reduced-motion: reduce) {
   .mosaic-word,
   .mosaic-image img,
@@ -592,107 +242,38 @@
     transition: none;
   }
 }
-
-/* ==========================================================
-   HOME — FULL-SCREEN BEHAVIOUR
-   ========================================================== */
-
-/*
-   The homepage is a fixed visual composition,
-   so the document itself should not scroll.
-*/
-
+/* Single-screen homepage and its existing header behaviour */
 html:has(.nienke-home),
 html:has(.nienke-home) body {
   width: 100%;
   height: 100%;
   max-width: 100%;
-
   margin: 0 !important;
   padding: 0 !important;
-
   overflow: hidden !important;
 }
-
-/* Remove WordPress outer spacing on homepage */
-
 html:has(.nienke-home) body > .wp-site-blocks {
   margin: 0 !important;
   padding: 0 !important;
 }
-
-/* ==========================================================
-   HOME — HIDE NVZ MARK
-   ========================================================== */
-
-/*
-   NvZ is useful as a home button on internal pages,
-   but unnecessary on the homepage itself.
-*/
-
 html:has(.nienke-home) .nienke-home-mark {
   display: none !important;
 }
-
-/* ==========================================================
-   HOME — MENU POSITION
-   ========================================================== */
-
-/*
-   On the homepage only, move the bunny/menu
-   into the open space on the right.
-*/
-
 html:has(.nienke-home) .nienke-menu {
-  left: 86%;
+  left: 50% !important;
 }
-
-/* ========================================
-   HOME — NAVIGATION PANEL
-   ======================================== */
-
-/*
-   The normal menu panel is centred around the bunny.
-   On the homepage we keep the same relationship,
-   so the menu opens directly beneath it.
-*/
-
 html:has(.nienke-home) .nienke-nav-panel {
   left: 50%;
 }
-
-/* ========================================
-   HOME — MOBILE
-   ======================================== */
-
-/*
-   On small screens the bunny returns to the centre.
-   There isn't enough horizontal room for the
-   desktop composition.
-*/
-
-@media (max-width: 768px) {
-  html:has(.nienke-home) .nienke-menu {
-    left: 50%;
-  }
-}
-
-/* ==========================================================
-   HOME — NARROWER MENU VEIL
-   ========================================================== */
-
 html:has(.nienke-home) .nienke-main-nav::before {
   left: 35px;
   right: -35px;
-
   background: linear-gradient(
     90deg,
-    rgba(244, 240, 231, 0) 0%,
-    rgba(244, 240, 231, 0.78) 14%,
+    rgba(244, 240, 231, 0),
     rgba(244, 240, 231, 0.97) 30%,
     rgba(244, 240, 231, 0.99) 50%,
     rgba(244, 240, 231, 0.97) 70%,
-    rgba(244, 240, 231, 0.78) 86%,
-    rgba(244, 240, 231, 0) 100%
+    rgba(244, 240, 231, 0)
   );
 }
