@@ -55,6 +55,20 @@ wp_enqueue_script(
         file_exists($header_css_path) ? filemtime($header_css_path) : '1.0.0'
     );
 
+    /* ========================================
+   PROJECT WHITE RABBIT
+   PHASE 02 — BREATHING MOSAIC
+   ======================================== */
+
+wp_enqueue_style(
+    'nienke-breathing',
+    get_theme_file_uri('/assets/css/breathing.css'),
+    array('nienke-home'),
+    filemtime(
+        get_theme_file_path('/assets/css/breathing.css')
+    )
+);
+
 
     // Intro
     $intro_css_path = get_theme_file_path('/assets/css/components/intro.css');

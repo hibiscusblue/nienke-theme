@@ -1,0 +1,195 @@
+/* ==========================================================
+   NIENKE VAN ZATRATE
+   PROJECT WHITE RABBIT
+
+   PHASE 02 — THE BREATHING MOSAIC
+
+   Slow, organic, hypnotic movement.
+   ========================================================== */
+
+
+/* ========================================
+   01 — ANIMATION VARIABLES
+   ======================================== */
+
+.nienke-home {
+  --breathing-duration: 12s;
+  --breathing-distance: 5px;
+  --breathing-rotation: 1deg;
+  --breathing-scale: 1.025;
+}
+
+
+/* ========================================
+   02 — PREPARE THE ARTWORK
+   ======================================== */
+
+/*
+   Animate images inside mosaic cells,
+   without changing the grid itself.
+*/
+
+.nienke-mosaic .mosaic-cell img {
+  transform-origin: center center;
+
+  backface-visibility: hidden;
+
+  will-change: transform;
+}
+
+
+/* ========================================
+   03 — FIRST CELL
+   FLOATING
+   ======================================== */
+
+.nienke-mosaic .mosaic-cell:nth-child(1) img {
+  animation:
+    nienke-float
+    13s
+    ease-in-out
+    infinite
+    alternate;
+}
+
+
+/* ========================================
+   04 — SECOND CELL
+   ROTATING
+   ======================================== */
+
+.nienke-mosaic .mosaic-cell:nth-child(2) img {
+  animation:
+    nienke-rotate
+    17s
+    ease-in-out
+    infinite
+    alternate;
+}
+
+
+/* ========================================
+   05 — THIRD CELL
+   DRIFTING
+   ======================================== */
+
+.nienke-mosaic .mosaic-cell:nth-child(3) img {
+  animation:
+    nienke-drift
+    19s
+    ease-in-out
+    infinite
+    alternate;
+}
+
+
+/* ========================================
+   06 — FOURTH CELL
+   BREATHING
+   ======================================== */
+
+.nienke-mosaic .mosaic-cell:nth-child(4) img {
+  animation:
+    nienke-breathe
+    15s
+    ease-in-out
+    infinite
+    alternate;
+}
+
+
+/* ========================================
+   07 — KEYFRAMES
+   ======================================== */
+
+/* ========================================
+   PROJECT WHITE RABBIT
+   MORE NOTICEABLE BREATHING
+   ======================================== */
+
+/* 01 — FLOAT */
+
+@keyframes nienke-float {
+  0% {
+    transform: translateY(-10px);
+  }
+
+  100% {
+    transform: translateY(10px);
+  }
+}
+
+/* 02 — ROTATE */
+
+@keyframes nienke-rotate {
+  0% {
+    transform: rotate(-2deg);
+  }
+
+  100% {
+    transform: rotate(2deg);
+  }
+}
+
+/* 03 — DRIFT */
+
+@keyframes nienke-drift {
+  0% {
+    transform: translate(-10px, 7px);
+  }
+
+  100% {
+    transform: translate(10px, -7px);
+  }
+}
+
+/* 04 — BREATHE */
+
+@keyframes nienke-breathe {
+  0% {
+    transform: scale(0.97);
+  }
+
+  100% {
+    transform: scale(1.06);
+  }
+}
+
+
+/* ========================================
+   08 — TABLET
+   ======================================== */
+
+@media (max-width: 1024px) {
+
+  .nienke-mosaic .mosaic-cell img {
+    animation-duration: 16s;
+  }
+
+}
+
+
+/* ========================================
+   09 — MOBILE
+   ======================================== */
+
+@media (max-width: 600px) {
+
+  .nienke-mosaic .mosaic-cell img {
+    animation-duration: 20s;
+  }
+
+}
+
+
+/* ========================================
+   10 — ACCESSIBILITY
+   ======================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .nienke-mosaic .mosaic-cell img {
+    animation: none !important;
+  }
+
+}

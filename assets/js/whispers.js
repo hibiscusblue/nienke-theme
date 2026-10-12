@@ -94,7 +94,7 @@
     });
 
     // Keep the message visible briefly.
-    const visibleDuration = random(900, 1700);
+    const visibleDuration = random(200, 200);
 
     setTimeout(() => {
       whisper.classList.remove("is-visible");
