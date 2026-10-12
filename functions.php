@@ -20,6 +20,25 @@ function nienke_enqueue_assets() {
         file_exists($base_css_path) ? filemtime($base_css_path) : '1.0.0'
     );
 
+    /* ========================================
+   PROJECT WHITE RABBIT
+   ======================================== */
+
+wp_enqueue_style(
+    'nienke-whispers',
+    get_theme_file_uri('/assets/css/whispers.css'),
+    array(),
+    filemtime(get_theme_file_path('/assets/css/whispers.css'))
+);
+
+wp_enqueue_script(
+    'nienke-whispers',
+    get_theme_file_uri('/assets/js/whispers.js'),
+    array(),
+    filemtime(get_theme_file_path('/assets/js/whispers.js')),
+    true
+);
+
 
     /* ========================================
        COMPONENTS — CSS

@@ -1,314 +1,1046 @@
 /* ==========================================================
-   NIENKE VAN ZATRATE — EDITORIAL HOME
-   Two-column grid, artwork positioned within each cell.
+   NIENKE VAN ZATRATE
+   THE CURIOUS ARCHIVE — EDITORIAL HOME
+
+   DESIGN SYSTEM
+   -------------
+   01. Controls
+   02. Page and canvas
+   03. Editorial grid
+   04. Typography
+   05. Artwork
+   06. Individual compositions
+   07. Interactions
+   08. Smaller laptops and tablets
+   09. Short landscape screens
+   10. Phones
+   11. Short phones
+   12. Accessibility
+   13. WordPress and header
+   14. Optional design guides
    ========================================================== */
 
-/* 01 — PAGE AND GRID */
+
+/* ==========================================================
+   01 — DESIGN CONTROLS
+
+   YOUR EDITORIAL CONTROL PANEL
+
+   Change these values instead of searching through
+   the entire stylesheet.
+
+   X = horizontal movement
+   Y = vertical movement
+
+   Positive X → right
+   Negative X → left
+
+   Positive Y → down
+   Negative Y → up
+   ========================================================== */
+
+:root {
+
+  /* COLORS */
+
+  --home-paper: #f4f0e7;
+  --home-ink: #111111;
+
+
+  /* HEADER */
+
+  --home-header-height: 54px;
+
+
+  /* GRID */
+
+  --home-padding-x: clamp(24px, 5vw, 90px);
+
+  --home-padding-top: clamp(70px, 10svh, 115px);
+
+  --home-padding-bottom: clamp(18px, 3svh, 35px);
+
+  --home-gap-x: clamp(12px, 2.5vw, 48px);
+
+  --home-gap-y: clamp(8px, 1.5svh, 22px);
+
+
+  /* TYPOGRAPHY */
+
+  --home-title-size: clamp(3rem, 5.2vw, 7rem);
+
+  --home-title-spacing: -0.065em;
+
+
+  /* IMAGE SIZES */
+
+  --cuisine-image-size: 62%;
+
+  --insights-image-size: 120%;
+
+  --passions-image-size: 105%;
+
+  --shop-image-size: 42%;
+
+
+  /* IMAGE MOVEMENT */
+
+  --cuisine-x: 0px;
+  --cuisine-y: 0px;
+
+  --insights-x: -100px;
+  --insights-y: 0px;
+
+  --passions-x: -250px;
+  --passions-y: -35px;
+
+  --shop-x: 0px;
+  --shop-y: 50px;
+
+
+  /* TITLE MOVEMENT */
+
+  --cuisine-title-x: -20px;
+  --cuisine-title-y: 0px;
+
+  --insights-title-x: 0px;
+  --insights-title-y: 180px;
+
+  --passions-title-x: 225px;
+  --passions-title-y: 80px;
+
+  --shop-title-x: -60px;
+  --shop-title-y: 20px;
+
+
+  /* ANIMATION */
+
+  --home-ease: cubic-bezier(0.16, 1, 0.3, 1);
+
+  --home-duration: 650ms;
+
+}
+
+
+/* ==========================================================
+   02 — PAGE AND CANVAS
+   ========================================================== */
+
 .nienke-home {
+
   width: 100%;
+  min-width: 0;
+
   margin: 0;
   padding: 0;
+
   overflow: hidden;
-  color: #111;
-  background: #f4f0e7;
+
+  color: var(--home-ink);
+  background: var(--home-paper);
+
 }
+
+
+/* ==========================================================
+   03 — EDITORIAL GRID
+
+   FOUR INVISIBLE REGIONS
+
+   ┌─────────────────┬─────────────────┐
+   │                 │                 │
+   │     CUISINE     │    INSIGHTS     │
+   │                 │                 │
+   ├─────────────────┼─────────────────┤
+   │                 │                 │
+   │    PASSIONS     │      SHOP       │
+   │                 │                 │
+   └─────────────────┴─────────────────┘
+   ========================================================== */
 
 .nienke-mosaic {
+
   box-sizing: border-box;
+
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  grid-template-rows: repeat(2, minmax(0, 1fr));
-  gap: clamp(12px, 2vw, 32px);
+
+  grid-template-columns:
+    repeat(2, minmax(0, 1fr));
+
+  grid-template-rows:
+    repeat(2, minmax(0, 1fr));
+
+  grid-template-areas:
+    "cuisine insights"
+    "passions shop";
+
+  column-gap: var(--home-gap-x);
+  row-gap: var(--home-gap-y);
+
   width: 100%;
-  height: calc(100svh - 54px);
-  padding: clamp(76px, 11svh, 125px) clamp(20px, 5vw, 100px)
-    clamp(16px, 3svh, 36px);
+
+  height: calc(100svh - var(--home-header-height));
+
+  min-height: 0;
+
+  padding:
+    var(--home-padding-top)
+    var(--home-padding-x)
+    var(--home-padding-bottom);
+
   overflow: hidden;
+
   isolation: isolate;
-  background: #f4f0e7;
+
+  background: var(--home-paper);
+
 }
+
+
+/* ==========================================================
+   GRID CELL FOUNDATION
+   ========================================================== */
 
 .mosaic-cell {
+
   position: relative;
+
+  display: grid;
+
+  grid-template-columns: minmax(0, 1fr);
+  grid-template-rows: minmax(0, 1fr);
+
   min-width: 0;
   min-height: 0;
+
   isolation: isolate;
+
 }
 
-/* 02 — TYPOGRAPHY */
+
+/* GRID AREA ASSIGNMENT */
+
+.mosaic-cell-cuisine {
+  grid-area: cuisine;
+}
+
+.mosaic-cell-insights {
+  grid-area: insights;
+}
+
+.mosaic-cell-passions {
+  grid-area: passions;
+}
+
+.mosaic-cell-shop {
+  grid-area: shop;
+}
+
+
+/* ==========================================================
+   04 — TYPOGRAPHY
+
+   LARGE EDITORIAL SERIF
+   ========================================================== */
+
 .mosaic-word {
-  position: absolute;
-  top: 0;
-  left: 0;
+
+  position: relative;
+
   z-index: 3;
-  display: inline-block;
+
+  display: block;
+
+  grid-area: 1 / 1;
+
+  align-self: start;
+  justify-self: start;
+
+  width: max-content;
   max-width: 100%;
+
   margin: 0;
   padding: 0;
-  color: #111;
-  font-family: "Times New Roman", Times, serif;
-  font-size: clamp(2.6rem, 5.6vw, 7.4rem);
+
+  color: var(--home-ink);
+
+  font-family:
+    "Times New Roman",
+    Times,
+    serif;
+
+  font-size: var(--home-title-size);
+
   font-weight: 400;
+
   line-height: 0.95;
-  letter-spacing: -0.06em;
+
+  letter-spacing: var(--home-title-spacing);
+
   white-space: nowrap;
+
   text-decoration: none;
+
+  transform:
+    translate(
+      var(--title-x, 0px),
+      var(--title-y, 0px)
+    );
+
   transition:
-    opacity 0.3s ease,
-    transform 0.4s ease;
+    opacity 350ms ease,
+    transform var(--home-duration) var(--home-ease);
+
 }
 
-.mosaic-word:hover,
-.mosaic-word:focus-visible {
-  color: #111;
-  opacity: 0.65;
-  transform: translateY(-3px);
-  text-decoration: none;
+
+/* RIGHT-HAND HEADINGS */
+
+.mosaic-cell-insights .mosaic-word,
+.mosaic-cell-shop .mosaic-word {
+
+  justify-self: end;
+
 }
 
-/* 03 — ARTWORK BASE */
-.mosaic-art {
-  position: absolute;
-  display: block;
-  max-width: none;
-  height: auto;
-  margin: 0;
-  padding: 0;
-  transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
-}
 
-.mosaic-art img {
-  display: block;
-  width: 100%;
-  height: auto;
-  user-select: none;
-}
+/* INDIVIDUAL TITLE CONTROLS */
 
-a.mosaic-art:hover {
-  transform: translateY(-6px) rotate(-1deg);
-}
+.mosaic-cell-cuisine .mosaic-word {
 
-/* 04 — DESKTOP CELL COMPOSITIONS
-   Edit width here to enlarge an image. No min() height cap.
-   Artwork stays inside its own grid cell. */
+  --title-x: var(--cuisine-title-x);
+  --title-y: var(--cuisine-title-y);
 
-.mosaic-frittata {
-  width: 86%;
-  left: 9%;
-  top: 23%;
-  z-index: 2;
 }
 
 .mosaic-cell-insights .mosaic-word {
-  left: auto;
-  right: 0;
-}
 
-.mosaic-quiet {
-  width: 78%;
-  right: 7%;
-  top: 25%;
-  z-index: 1;
+  --title-x: var(--insights-title-x);
+  --title-y: var(--insights-title-y);
+
 }
 
 .mosaic-cell-passions .mosaic-word {
-  top: 2%;
-}
 
-.mosaic-second-life {
-  width: 72%;
-  left: 8%;
-  top: 28%;
-  z-index: 1;
+  --title-x: var(--passions-title-x);
+  --title-y: var(--passions-title-y);
+
 }
 
 .mosaic-cell-shop .mosaic-word {
-  left: auto;
-  right: 7%;
-  top: 2%;
+
+  --title-x: var(--shop-title-x);
+  --title-y: var(--shop-title-y);
+
+}
+
+
+/* ==========================================================
+   05 — ARTWORK FOUNDATION
+
+   Images share the same grid area as their heading.
+
+   This allows intentional overlap without relying
+   on absolute top/left percentages.
+   ========================================================== */
+
+.mosaic-art {
+
+  position: relative;
+
+  z-index: 2;
+
+  display: block;
+
+  grid-area: 1 / 1;
+
+  align-self: center;
+
+  width: var(--art-width, 70%);
+
+  max-width: none;
+
+  height: fit-content;
+
+  margin: 0;
+  padding: 0;
+
+  transform:
+    translate(
+      var(--art-x, 0px),
+      var(--art-y, 0px)
+    );
+
+  transition:
+    transform var(--home-duration) var(--home-ease),
+    filter var(--home-duration) var(--home-ease);
+
+  will-change: transform;
+
+}
+
+
+/* IMAGE ELEMENT */
+
+.mosaic-art img {
+
+  display: block;
+
+  width: 100%;
+  height: auto;
+
+  max-width: none;
+
+  object-fit: contain;
+
+  user-select: none;
+
+  -webkit-user-drag: none;
+
+}
+
+
+/* ==========================================================
+   06 — INDIVIDUAL EDITORIAL COMPOSITIONS
+
+   Each category has its own artistic direction.
+
+   CUISINE:
+   Large food image, slightly inward.
+
+   INSIGHTS:
+   Cinematic portrait, inward-facing.
+
+   PASSIONS:
+   Unexpected imagery, slightly offset.
+
+   SHOP:
+   Playful isolated cookie.
+   ========================================================== */
+
+
+/* ----------------------------------------------------------
+   CUISINE — UPPER LEFT
+   ---------------------------------------------------------- */
+
+.mosaic-cell-cuisine {
+
+  justify-items: center;
+
+}
+
+.mosaic-frittata {
+
+  --art-width: var(--cuisine-image-size);
+
+  --art-x: var(--cuisine-x);
+  --art-y: var(--cuisine-y);
+
+  justify-self: center;
+  align-self: center;
+
+  z-index: 2;
+
+}
+
+
+/* ----------------------------------------------------------
+   INSIGHTS — UPPER RIGHT
+   ---------------------------------------------------------- */
+
+.mosaic-cell-insights {
+
+  justify-items: center;
+
+}
+
+.mosaic-quiet {
+
+  --art-width: var(--insights-image-size);
+
+  --art-x: var(--insights-x);
+  --art-y: var(--insights-y);
+
+  justify-self: center;
+  align-self: center;
+
+  z-index: 2;
+
+}
+
+
+/* ----------------------------------------------------------
+   PASSIONS — LOWER LEFT
+   ---------------------------------------------------------- */
+
+.mosaic-cell-passions {
+
+  justify-items: center;
+
+}
+
+.mosaic-second-life {
+
+  --art-width: var(--passions-image-size);
+
+  --art-x: var(--passions-x);
+  --art-y: var(--passions-y);
+
+  justify-self: center;
+  align-self: center;
+
+  z-index: 2;
+
+}
+
+
+/* ----------------------------------------------------------
+   SHOP — LOWER RIGHT
+   ---------------------------------------------------------- */
+
+.mosaic-cell-shop {
+
+  justify-items: center;
+
 }
 
 .mosaic-cookie {
-  width: 57%;
-  right: 8%;
-  top: 29%;
+
+  --art-width: var(--shop-image-size);
+
+  --art-x: var(--shop-x);
+  --art-y: var(--shop-y);
+
+  justify-self: center;
+  align-self: center;
+
   z-index: 2;
+
 }
 
-/* 05 — TABLETS AND SMALLER DESKTOPS */
+
+/* ==========================================================
+   07 — INTERACTIONS
+
+   Subtle movement.
+   No aggressive zooming.
+   No unnecessary visual noise.
+   ========================================================== */
+
+
+/* ARTWORK HOVER */
+
+@media (hover: hover) and (pointer: fine) {
+
+  a.mosaic-art:hover {
+
+    transform:
+      translate(
+        var(--art-x, 0px),
+        calc(var(--art-y, 0px) - 7px)
+      )
+      rotate(-1deg);
+
+    filter: brightness(1.035);
+
+  }
+
+
+  /* TYPOGRAPHY HOVER */
+
+  .mosaic-word:hover {
+
+    opacity: 0.72;
+
+    transform:
+      translate(
+        var(--title-x, 0px),
+        calc(var(--title-y, 0px) - 4px)
+      );
+
+  }
+
+}
+
+
+/* KEYBOARD NAVIGATION */
+
+.mosaic-word:focus-visible,
+.mosaic-art:focus-visible {
+
+  outline: 2px solid var(--home-ink);
+
+  outline-offset: 6px;
+
+  border-radius: 2px;
+
+}
+
+
+/* ==========================================================
+   08 — SMALLER LAPTOPS AND TABLETS
+
+   More compact spacing.
+   Slightly smaller typography.
+   Artwork stays proportional to each region.
+   ========================================================== */
+
 @media (min-width: 701px) and (max-width: 1100px) {
-  .nienke-mosaic {
-    padding-left: 4vw;
-    padding-right: 4vw;
-    gap: 2vw;
+
+  :root {
+
+    --home-padding-x: 4vw;
+
+    --home-padding-top: clamp(65px, 9svh, 95px);
+
+    --home-padding-bottom: 18px;
+
+    --home-gap-x: 2vw;
+    --home-gap-y: 1svh;
+
+    --home-title-size: clamp(2.7rem, 5.7vw, 5.5rem);
+
+
+    /* ARTWORK */
+
+    --cuisine-image-size: 85%;
+    --insights-image-size: 76%;
+    --passions-image-size: 68%;
+    --shop-image-size: 57%;
+
+
+    /* ARTISTIC ADJUSTMENTS */
+
+    --cuisine-x: 8px;
+    --cuisine-y: 5px;
+
+    --insights-x: -8px;
+    --insights-y: 5px;
+
+    --passions-x: 8px;
+    --passions-y: 0px;
+
+    --shop-x: -8px;
+    --shop-y: 0px;
+
   }
 
-  .mosaic-word {
-    font-size: clamp(2.4rem, 6.1vw, 5.8rem);
-  }
-  .mosaic-frittata {
-    width: 88%;
-    left: 6%;
-    top: 25%;
-  }
-  .mosaic-quiet {
-    width: 160%;
-    right: -40%;
-    top: 27%;
-  }
-  .mosaic-second-life {
-    width: 140%;
-    left: -30%;
-    top: 12.5%;
-  }
-  .mosaic-cookie {
-    width: 85%;
-    right: -8%;
-    top: -10%;
-  }
 }
 
-/* 06 — SHORT LANDSCAPE SCREENS
-   Limit image width by cell height only on short screens. */
+
+/* ==========================================================
+   09 — SHORT LANDSCAPE SCREENS
+
+   Useful for laptops with limited vertical space.
+
+   Image widths are constrained using the available
+   viewport height to reduce clipping.
+   ========================================================== */
+
 @media (min-width: 701px) and (max-height: 720px) {
-  .nienke-mosaic {
-    padding-top: clamp(62px, 10svh, 90px);
-    padding-bottom: 12px;
+
+  :root {
+
+    --home-padding-top: clamp(48px, 8svh, 75px);
+
+    --home-padding-bottom: 10px;
+
+    --home-gap-y: 0px;
+
+    --home-title-size: clamp(2.4rem, 4.7vw, 5.2rem);
+
   }
 
-  .mosaic-word {
-    font-size: clamp(2.4rem, 5vw, 5.5rem);
-  }
+
   .mosaic-frittata {
-    width: min(86%, 57svh);
+
+    width: min(
+      var(--cuisine-image-size),
+      52svh
+    );
+
   }
+
   .mosaic-quiet {
-    width: min(78%, 49svh);
+
+    width: min(
+      var(--insights-image-size),
+      45svh
+    );
+
   }
+
   .mosaic-second-life {
-    width: min(72%, 45svh);
+
+    width: min(
+      var(--passions-image-size),
+      39svh
+    );
+
   }
+
   .mosaic-cookie {
-    width: min(57%, 36svh);
+
+    width: min(
+      var(--shop-image-size),
+      32svh
+    );
+
   }
+
 }
 
-/* 07 — PHONES: FOUR STACKED EDITORIAL CELLS */
+
+/* ==========================================================
+   10 — PHONES
+
+   Four stacked editorial regions.
+
+   The layout changes, but the personality remains.
+
+   ┌──────────────────────┐
+   │ CUISINE       IMAGE  │
+   ├──────────────────────┤
+   │ INSIGHTS      IMAGE  │
+   ├──────────────────────┤
+   │ PASSIONS      IMAGE  │
+   ├──────────────────────┤
+   │ SHOP          IMAGE  │
+   └──────────────────────┘
+   ========================================================== */
+
 @media (max-width: 700px) {
-  .nienke-mosaic {
-    grid-template-columns: minmax(0, 1fr);
-    grid-template-rows: repeat(4, minmax(0, 1fr));
-    gap: 1svh;
-    height: calc(100svh - 50px);
-    padding: clamp(58px, 9svh, 86px) 5vw 12px;
+
+  :root {
+
+    --home-header-height: 50px;
+
+    --home-padding-x: 5vw;
+
+    --home-padding-top: clamp(54px, 8svh, 80px);
+
+    --home-padding-bottom: 12px;
+
+    --home-gap-x: 0px;
+    --home-gap-y: 1svh;
+
+    --home-title-size: clamp(2rem, 9vw, 4.2rem);
+
+    --home-title-spacing: -0.055em;
+
+
+    /* MOBILE IMAGE SIZES */
+
+    --cuisine-image-size: 44%;
+    --insights-image-size: 40%;
+    --passions-image-size: 39%;
+    --shop-image-size: 34%;
+
+
+    /* MOBILE IMAGE MOVEMENT */
+
+    --cuisine-x: 0px;
+    --cuisine-y: 0px;
+
+    --insights-x: 0px;
+    --insights-y: 0px;
+
+    --passions-x: 0px;
+    --passions-y: 0px;
+
+    --shop-x: 0px;
+    --shop-y: 0px;
+
   }
 
-  .mosaic-word {
-    font-size: clamp(2rem, 9.2vw, 4.6rem);
-    letter-spacing: -0.055em;
+
+  /* MOBILE GRID */
+
+  .nienke-mosaic {
+
+    grid-template-columns:
+      minmax(0, 1fr);
+
+    grid-template-rows:
+      repeat(4, minmax(0, 1fr));
+
+    grid-template-areas:
+      "cuisine"
+      "insights"
+      "passions"
+      "shop";
+
+    height:
+      calc(100svh - var(--home-header-height));
+
   }
+
+
+  /* MOBILE CELL */
+
+  .mosaic-cell {
+
+    grid-template-columns:
+      minmax(0, 1fr);
+
+    grid-template-rows:
+      minmax(0, 1fr);
+
+  }
+
+
+  /* MOBILE TYPOGRAPHY */
+
+  .mosaic-word {
+
+    align-self: start;
+
+  }
+
+
+  /* LEFT-ALIGNED HEADINGS */
 
   .mosaic-cell-cuisine .mosaic-word,
   .mosaic-cell-passions .mosaic-word {
-    left: 0;
-    top: 0;
+
+    justify-self: start;
+
   }
+
+
+  /* RIGHT-ALIGNED HEADINGS */
 
   .mosaic-cell-insights .mosaic-word,
   .mosaic-cell-shop .mosaic-word {
-    left: auto;
-    right: 0;
-    top: 0;
+
+    justify-self: end;
+
   }
+
+
+  /* MOBILE ARTWORK */
 
   .mosaic-frittata {
-    width: 43%;
-    left: 48%;
-    top: 12%;
+
+    justify-self: end;
+    align-self: center;
+
+    margin-right: 6%;
+
   }
+
   .mosaic-quiet {
-    width: 40%;
-    right: 10%;
-    top: 34%;
+
+    justify-self: start;
+    align-self: end;
+
+    margin-left: 7%;
+
   }
+
   .mosaic-second-life {
-    width: 40%;
-    left: 48%;
-    top: 26%;
+
+    justify-self: end;
+    align-self: center;
+
+    margin-right: 7%;
+
   }
+
   .mosaic-cookie {
-    width: 34%;
-    right: 13%;
-    top: 36%;
+
+    justify-self: start;
+    align-self: end;
+
+    margin-left: 10%;
+
   }
+
 }
 
-/* 08 — SHORT PHONES */
+
+/* ==========================================================
+   11 — SHORT PHONES
+
+   Reduce image sizes and typography so that the
+   four categories remain visible.
+   ========================================================== */
+
 @media (max-width: 700px) and (max-height: 650px) {
-  .nienke-mosaic {
-    padding-top: 54px;
-    gap: 0;
+
+  :root {
+
+    --home-padding-top: 48px;
+
+    --home-padding-bottom: 6px;
+
+    --home-gap-y: 0px;
+
+    --home-title-size: clamp(1.7rem, 7.8vw, 3rem);
+
+
+    /* COMPACT ARTWORK */
+
+    --cuisine-image-size: 35%;
+    --insights-image-size: 32%;
+    --passions-image-size: 31%;
+    --shop-image-size: 27%;
+
   }
-  .mosaic-word {
-    font-size: clamp(1.8rem, 8vw, 3.2rem);
-  }
-  .mosaic-frittata {
-    width: 35%;
-  }
-  .mosaic-quiet {
-    width: 32%;
-  }
-  .mosaic-second-life {
-    width: 32%;
-  }
-  .mosaic-cookie {
-    width: 28%;
-  }
+
 }
 
-/* 09 — ACCESSIBILITY */
+
+/* ==========================================================
+   12 — ACCESSIBILITY
+   ========================================================== */
+
 @media (prefers-reduced-motion: reduce) {
+
   .mosaic-word,
   .mosaic-art {
-    transition: none;
+
+    transition: none !important;
+
   }
+
+  .mosaic-word:hover,
+  .mosaic-art:hover {
+
+    filter: none;
+
+  }
+
 }
 
-/* 10 — HOMEPAGE-ONLY WORDPRESS AND HEADER RULES */
+
+/* ==========================================================
+   13 — WORDPRESS AND HEADER
+
+   Homepage-only adjustments.
+
+   These rules do not affect article or recipe pages.
+   ========================================================== */
+
 html:has(.nienke-home),
 html:has(.nienke-home) body {
+
   width: 100%;
   height: 100%;
+
   max-width: 100%;
+
   margin: 0 !important;
   padding: 0 !important;
+
   overflow: hidden !important;
+
 }
+
+
+/* WORDPRESS SITE WRAPPER */
 
 html:has(.nienke-home) body > .wp-site-blocks {
+
   margin: 0 !important;
   padding: 0 !important;
+
 }
+
+
+/* HIDE NVZ LOGO ON HOMEPAGE */
 
 html:has(.nienke-home) .nienke-home-mark {
+
   display: none !important;
-}
-html:has(.nienke-home) .nienke-menu {
-  left: 50% !important;
-}
-html:has(.nienke-home) .nienke-nav-panel {
-  left: 50%;
+
 }
 
+
+/* CENTER BUNNY MENU */
+
+html:has(.nienke-home) .nienke-menu {
+
+  left: 50% !important;
+
+}
+
+
+/* CENTER NAVIGATION PANEL */
+
+html:has(.nienke-home) .nienke-nav-panel {
+
+  left: 50%;
+
+}
+
+
+/* SOFT NAVIGATION BACKDROP */
+
 html:has(.nienke-home) .nienke-main-nav::before {
+
   left: 35px;
   right: -35px;
+
   background: linear-gradient(
+
     90deg,
+
     rgba(244, 240, 231, 0),
+
     rgba(244, 240, 231, 0.97) 30%,
+
     rgba(244, 240, 231, 0.99) 50%,
+
     rgba(244, 240, 231, 0.97) 70%,
+
     rgba(244, 240, 231, 0)
+
   );
+
+}
+
+
+/* ==========================================================
+   14 — OPTIONAL DESIGN GUIDES
+
+   GRID MASTER MODE (^_^)
+
+   To activate:
+
+   Add the class "debug" to .nienke-mosaic
+
+   Example:
+
+   <main class="nienke-mosaic debug">
+
+   Remove "debug" when finished.
+   ========================================================== */
+
+.nienke-mosaic.debug {
+
+  outline: 2px solid rgba(255, 0, 0, 0.6);
+
+  outline-offset: -2px;
+
+}
+
+.nienke-mosaic.debug .mosaic-cell {
+
+  outline: 1px dashed rgba(0, 80, 255, 0.45);
+
+  outline-offset: -1px;
+
+}
+
+.nienke-mosaic.debug .mosaic-word {
+
+  background: rgba(255, 220, 0, 0.15);
+
+}
+
+.nienke-mosaic.debug .mosaic-art {
+
+  outline: 1px dashed rgba(255, 0, 150, 0.45);
+
 }

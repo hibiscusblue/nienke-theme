@@ -1,0 +1,62 @@
+/* ==========================================================
+   PROJECT WHITE RABBIT
+   01 — THE WHISPERS
+   ========================================================== */
+
+.white-rabbit-layer {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+
+  overflow: hidden;
+  pointer-events: none;
+  isolation: isolate;
+}
+
+.white-rabbit-whisper {
+  position: absolute;
+
+  max-width: 70vw;
+
+  font-family: "Times New Roman", Times, serif;
+  font-size: clamp(12px, 1.8vw, 25px);
+  font-weight: 400;
+
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+
+  color: #111;
+
+  opacity: 0;
+  transform: translate(-50%, -50%) scale(0.96);
+
+  transition:
+    opacity 450ms ease,
+    transform 650ms ease;
+
+  white-space: nowrap;
+  pointer-events: none;
+}
+
+.white-rabbit-whisper.is-visible {
+  opacity: 0.85;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.white-rabbit-whisper.is-disappearing {
+  opacity: 0;
+  transform: translate(-50%, -50%) scale(1.04);
+}
+
+@media (max-width: 600px) {
+  .white-rabbit-whisper {
+    font-size: clamp(11px, 3vw, 16px);
+    letter-spacing: 0.1em;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .white-rabbit-layer {
+    display: none;
+  }
+}
